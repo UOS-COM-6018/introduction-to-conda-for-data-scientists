@@ -78,18 +78,28 @@ For convenience here are links to the 64-bit Miniconda installers.
 ### Windows installation
 
 After you downloaded the [Windows GUI installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe), double click on it and follow the instructions (accept license, etc.).
-You can use the defaults except for the "Advanced Installation Options" where you would tick on **"Add Miniconda3 to my PATH environment variable"**.
+You can use the defaults except for the "Advanced Installation Options" where you would tick on **"Add Miniconda3 to my
+PATH environment variable"**.
 
 ### Mac OSX installation
-After you downloaded the [Mac OSX GUI installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg), double click on it and follow the instructions (accept license, etc.). 
-When you are asked where to install Miniconda, you should leave the default option to "install for me only". If you get the error message “You cannot install Miniconda in this location,” reselect "Install for me only". Then you should be able to continue to the next.
-The default option will modify your PATH in ~/.bash_profile. If you open the terminal after installation is over, you would see "(base)" on the left side of prompt.
+After you downloaded the [Mac OSX GUI
+installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg), double click on it and follow the
+instructions (accept license, etc.).
+
+When you are asked where to install Miniconda, you should leave the default option to "_Install for me only_". If you get
+the error message “_You cannot install Miniconda in this location_” then reselect "_Install for me only_". Then you
+should be able to continue to the next prompt.
+
+The default options will modify your `$PATH` in `~/.bashrc`. 
+
+You will need to either `source ~/.bashrc` in your current shell or start a new shell/terminal for the changes to take
+effect. Once correctly installed and activated your command promt should begin with `(base)`.
 
 ### Linux installation
 
-I will walk through the steps for installing on Linux systems below as installing on Linux systems 
-is slightly more involved. First, download the 64-bit Python 3 install script for Miniconda 
-(clicking the link above will download the same script!).
+We will walk through the steps for installing on Linux systems below as installing on Linux systems is slightly more
+involved. First, download the 64-bit Python 3 install script for Miniconda (clicking the link above will download the
+same script!).
 
 ~~~
 wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -97,7 +107,8 @@ wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.
 {: .language-bash}
 
 Run the Miniconda install script. Follow the prompts on the installer screens. If you are unsure 
-about any setting, accept the defaults (you can change them later if necessary).
+about any setting, accept the defaults (you can change them later if necessary). The default options will modify your
+`$PATH` in `~/.bashrc`.
 
 ~~~
 bash Miniconda3-latest-Linux-x86_64.sh
@@ -111,12 +122,16 @@ rm Miniconda3-latest-Linux-x86_64.sh
 ~~~
 {: .language-bash}
 
+You will need to either `source ~/.bashrc` in your current shell or start a new shell/terminal for the changes to take
+effect. Once correctly installed and activated your command promt should begin with `(base)`.
+
 ## Verifying your Conda installation
 
-> On **Windows** you'll need to go to the "start" menu (or whatever it's called now) and open up the **Anaconda Powershell Prompt** before following the next instructions.
+> On **Windows** you'll need to go to the "start" menu (or whatever it's called now) and open up the **Anaconda
+> Powershell Prompt** before following the next instructions.
 
-In order to verify that you have installed Conda correctly run the `conda help` command. Output 
-of the command should look similar to the following.
+In order to verify that you have installed Conda correctly run the `conda --help` command. Output of the command should
+look similar to the following.
 
 ~~~
 $ conda --help
@@ -172,7 +187,7 @@ conda 23.1.0
 
 ## Make sure you have the most recent version
 
-Once Conda exists on your machine, then run the following command to make sure that you 
+Once Conda exists on your machine, you can update it at any time by running the following command to make sure that you
 have the most recent version and patches.
 
 ~~~
@@ -180,70 +195,41 @@ $ conda update --name base --channel defaults --yes conda
 ~~~
 {: .language-bash}
 
-You can re-run this command at any time to update to the most recent version of Conda.
 
 ## Initializing your shell for Conda
 
-Key parts of Conda's functionality require that it interact directly with the shell within which 
-Conda commands are being invoked as such each shell must be configured to make use of them. The 
-`conda init` command initializes a shell for use with Conda by making changes to your system that 
-are specific and customized for each shell. Conda supports a number of different shells and you 
-can run `conda init --help` to see the complete list.
+Key parts of Conda's functionality require that it interact directly with the shell within which Conda commands are
+being invoked as such each shell must be configured to make use of them. The `conda init` command initializes a shell
+for use with Conda by making changes to your system that are specific and customized for each shell. Conda supports a
+number of different shells and you can run `conda init --help` to see the complete list.
 
-Mac OSX and Linux users will want to initialize Conda for Bash as follows. If you are installing 
-on Linux, then you may have already been prompted to initialize Conda for your shell when running 
-the installation  script. If so, then you can safely skip this step.
+
+Mac OSX and Linux users may have already been prompted to initialize Conda for your shell when running the installation
+script. If so, then you can safely skip this step. 
+
+The following initialises the Bash shell.
 
 ~~~
 $ conda init bash
 ~~~
 {: .language-bash}
 
-Windows users can either use the Anaconda Command Prompt or the Anaconda Powershell Prompt which 
-are already initialized for Conda or they can initialize Conda for Powershell as follows.
+Windows users can either use the Anaconda Command Prompt or the Anaconda Powershell Prompt which are already initialized
+for Conda or they can initialize Conda for Powershell as follows. 
 
 ~~~
 > conda init powershell
 ~~~
 
 After running `conda init` you will need to close and restart your shell for changes to take 
-effect. Alternatively, Mac OS and Linux users can reload your `~/.bashrc` profile (which was 
-changed by running the `conda init` command). To reload your `~/.bashrc` profile, use the 
-following command.
+effect. Alternatively, MacOS and Linux users can reload your `~/.bashrc` profile (which was 
+changed by running the `conda init` command) by running the following command.
 
 ~~~
 $ source ~/.bashrc
 ~~~
 {: .language-bash}
 
-If you want to reverse or “undo” the changes made by `conda init`, then you can re-run the 
-`conda init` command and pass the `--reverse` option. Again, in order for the reversal to take 
-effect you will likely need to close and restart your shell session.
-
-## Workspace for Conda environments
-
-In order to maintain a consistent workspace for all your conda environment, we will create a new
-`introduction-to-conda-for-data-scientists` directory on your Desktop and store our conda environment in this directory.
-On Mac OSX and Linux running following commands in the
-Terminal will create the required directory on the Desktop.
-
-~~~
-$ cd ~/Desktop
-$ mkdir introduction-to-conda-for-data-scientists
-$ cd introduction-to-conda-for-data-scientists
-~~~
-{: .language-bash}
-
-
-For Windows users you may need to reverse the direction of the slash and run 
-the commands from the command prompt.
-
-~~~
-> cd ~\Desktop
-> mkdir introduction-to-conda-for-data-scientists
-> cd introduction-to-conda-for-data-scientists
-~~~
-
-Alternatively, you can always "right-click" and "create new folder" on your Desktop. All the 
-commands that are run during the workshop should be run in a terminal within the 
-`introduction-to-conda-for-data-scientists` directory.
+If you want to reverse or “undo” the changes made by `conda init`, then you can re-run the `conda init` command and pass
+the `--reverse` option. Again, in order for the reversal to take effect you will likely need to close and restart your
+shell session or `source ~/.bashrc`.
