@@ -11,8 +11,8 @@ root: ..
 
 ## Check to see if Conda is already installed
 
-If you have ever installed the [Anaconda Python distribution](https://www.anaconda.com/distribution/) 
-on your local machine, then you already have Conda installed! Mac and Linux users can check 
+If you have ever installed the [Anaconda Python distribution](https://www.anaconda.com/distribution/)
+on your local machine, then you already have Conda installed! Mac and Linux users can check
 whether Conda is installed by running the following command in a terminal.
 
 ~~~
@@ -21,50 +21,50 @@ $ which conda
 ~~~
 {: .language-bash}
 
-If Conda has already been installed on your machine, then this command should return the 
-absolute path to the conda executable. 
+If Conda has already been installed on your machine, then this command should return the
+absolute path to the conda executable.
 
-Windows users should search for "Anaconda" to see if the "Anaconda Command Prompt" shows up as an 
+Windows users should search for "Anaconda" to see if the "Anaconda Command Prompt" shows up as an
 option, if it does then you already have Conda installed.
 
 > ## Old version of Anaconda?
 >
 > If you previously installed the Anaconda Python distribution you may have an old version of Conda. You
 > can check your version of Conda with the following command.
-> 
+>
 > ~~~
 > $ conda --version
 > ~~~
 > {: .language-bash}
-> 
-> If you have a version of Conda that is 4.5 (or older), then it is probably best to 
-[uninstall](https://docs.anaconda.com/anaconda/install/uninstall/) your Anaconda Python distribution 
+>
+> If you have a version of Conda that is 4.5 (or older), then it is probably best to
+[uninstall](https://docs.anaconda.com/anaconda/install/uninstall/) your Anaconda Python distribution
 > and then reinstall the most recent version.
 {: .callout}
 
 ## Install Python 3 version of Miniconda
 
-If Conda has not been installed on your machine, then install the Python 3 version of 
-[Miniconda](https://docs.conda.io/en/latest/miniconda.html) for your OS. As the name 
-suggests, Miniconda is a "mini" version of the 
-[Anaconda Python distribution](https://www.anaconda.com/distribution/) that includes only Conda, a 
+If Conda has not been installed on your machine, then install the Python 3 version of
+[Miniconda](https://docs.conda.io/en/latest/miniconda.html) for your OS. As the name
+suggests, Miniconda is a "mini" version of the
+[Anaconda Python distribution](https://www.anaconda.com/distribution/) that includes only Conda, a
 Python 3 distribution, and any necessary OS-specific dependencies.
 
 For convenience here are links to the 64-bit Miniconda installers.
 
 * [Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
 * [Mac OSX](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg)
-* [Linux](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh) 
+* [Linux](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
 
 > ## Prefer Miniconda to Anaconda
 >
-> We suggest installing Miniconda which combines Conda with Python 3 (and a small number of core 
-> systems packages) instead of the full Anaconda distribution. Installing only Miniconda will 
-> encourage you to create separate environments for each project (and to install only those packages 
-> that you actually need for each project!). Project specific environments enhance portability and 
-> reproducibility of your research and workflows. 
-> 
-> Besides, if you *really* want the full Anaconda distribution you can always create an new conda 
+> We suggest installing Miniconda which combines Conda with Python 3 (and a small number of core
+> systems packages) instead of the full Anaconda distribution. Installing only Miniconda will
+> encourage you to create separate environments for each project (and to install only those packages
+> that you actually need for each project!). Project specific environments enhance portability and
+> reproducibility of your research and workflows.
+>
+> Besides, if you *really* want the full Anaconda distribution you can always create an new conda
 > environment and install it using the following command.
 >
 > ~~~
@@ -77,7 +77,9 @@ For convenience here are links to the 64-bit Miniconda installers.
 
 ### Windows installation
 
-After you downloaded the [Windows GUI installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe), double click on it and follow the instructions (accept license, etc.).
+After you downloaded the [Windows GUI
+installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe), double click on it and follow the
+instructions (accept license, etc.).
 You can use the defaults except for the "Advanced Installation Options" where you would tick on **"Add Miniconda3 to my
 PATH environment variable"**.
 
@@ -90,7 +92,7 @@ When you are asked where to install Miniconda, you should leave the default opti
 the error message “_You cannot install Miniconda in this location_” then reselect "_Install for me only_". Then you
 should be able to continue to the next prompt.
 
-The default options will modify your `$PATH` in `~/.bashrc`. 
+The default options will modify your `$PATH` in `~/.bashrc`.
 
 You will need to either `source ~/.bashrc` in your current shell or start a new shell/terminal for the changes to take
 effect. Once correctly installed and activated your command promt should begin with `(base)`.
@@ -106,7 +108,7 @@ wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.
 ~~~
 {: .language-bash}
 
-Run the Miniconda install script. Follow the prompts on the installer screens. If you are unsure 
+Run the Miniconda install script. Follow the prompts on the installer screens. If you are unsure
 about any setting, accept the defaults (you can change them later if necessary). The default options will modify your
 `$PATH` in `~/.bashrc`.
 
@@ -175,8 +177,8 @@ conda commands available from other packages:
 ~~~
 {: .language-bash}
 
-At the bottom of the help menu you will see a section with some optional arguments for the 
-`conda` command. In particular you can pass the `--version` flag which will return the version 
+At the bottom of the help menu you will see a section with some optional arguments for the
+`conda` command. In particular you can pass the `--version` flag which will return the version
 number. Again output should look similar to the following.
 
 ~~~
@@ -205,7 +207,7 @@ number of different shells and you can run `conda init --help` to see the comple
 
 
 Mac OSX and Linux users may have already been prompted to initialize Conda for your shell when running the installation
-script. If so, then you can safely skip this step. 
+script. If so, then you can safely skip this step.
 
 The following initialises the Bash shell.
 
@@ -214,15 +216,15 @@ $ conda init bash
 ~~~
 {: .language-bash}
 
-Windows users can either use the Anaconda Command Prompt or the Anaconda Powershell Prompt which are already initialized
-for Conda or they can initialize Conda for Powershell as follows. 
+Windows users should use the Anaconda Powershell Prompt which is already initialized for Conda or they can initialize
+Conda for Powershell as follows.
 
 ~~~
 > conda init powershell
 ~~~
 
-After running `conda init` you will need to close and restart your shell for changes to take 
-effect. Alternatively, MacOS and Linux users can reload your `~/.bashrc` profile (which was 
+After running `conda init` you will need to close and restart your shell for changes to take
+effect. Alternatively, MacOS and Linux users can reload your `~/.bashrc` profile (which was
 changed by running the `conda init` command) by running the following command.
 
 ~~~
