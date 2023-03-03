@@ -150,7 +150,7 @@ You can create a Conda environment and install multiple packages by listing the 
 optionally including the version you wish to use.
 
 ~~~
-$ conda create --name basic-scipy-env ipython matplotlib=3.1 numpy=1.23.5 scipy=1.9.3
+$ conda create --name basic-scipy-env ipython matplotlib=3.7 numpy=1.23.5 scipy=1.9.3
 ~~~
 {: .language-bash}
 
@@ -162,7 +162,7 @@ wanted a specific version of Python installed you would have to explicitly state
 This command will fail as the requested `scipy` and `numpy` versions are incompatible.
 
 ~~~
-$ conda create --name basic-scipy-env ipython matplotlib=3.1 numpy=1.9.3 scipy=1.9.3
+$ conda create --name basic-scipy-env ipython matplotlib=3.7 numpy=1.9.3 scipy=1.9.3
 ~~~
 {: .language-bash}
 
@@ -365,7 +365,7 @@ containing the existing Conda environments.
 > If you're not sure where your Conda environments are stored, activate an environment, launch Python, then run
 > the following:
 > ```
-> import sys                   
+> import sys
 > sys.executable
 > ~~~
 > {: .language-python}
