@@ -24,7 +24,7 @@ keypoints:
 
 ### Packages
 
-When working with a programming language, such as Python, that can do almost _anything_, one has to wonder how this is possible. You download Python, it is about 25 MB, how can everthing be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to doing almost _anything_. You can see this already when you start programming. After learning some very basics, you often learn how to *import* something into your script or session.
+When working with a programming language, such as Python, that can do almost _anything_, one has to wonder how this is possible. You download Python, it is about 25 MB, how can everything be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to doing almost _anything_. You can see this already when you start programming. After learning some very basics, you often learn how to *import* something into your script or session.
 
 > ## Modules, packages, libraries
 >
