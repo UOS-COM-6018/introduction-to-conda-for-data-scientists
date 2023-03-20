@@ -3,8 +3,8 @@ title: "Using Packages and Channels"
 teaching: 20
 exercises: 10
 questions:
-- "What are Conda channels?"
 - "What are Conda packages?"
+- "What are Conda channels?"
 - "Why should I be explicit about which channels my research project uses?"
 - "What should I do if a Python package isn't available via a Conda channel?"
 objectives:
