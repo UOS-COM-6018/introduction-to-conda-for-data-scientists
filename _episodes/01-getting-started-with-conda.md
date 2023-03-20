@@ -3,9 +3,13 @@ title: "Getting Started with Conda"
 teaching: 15
 exercises: 5
 questions:
+- "What is a package?"
+- "What is a dependency?"
+- "What is an environment?"
 - "What is Conda?"
 - "Why should I use a package and environment management system as part of my research workflow?"
 - "Why use Conda ?"
+- "What's inside a Conda package?"
 objectives:
 - "Understand why you should use a package and environment management system as part of your
   (data) science workflow."
@@ -36,7 +40,6 @@ When working with a programming language, such as Python, that can do almost _an
 {: .callout}
 
 ### Dependencies
-
 
 A bit further into your programming career you may notice/have noticed that many packages do not just do everything on
 their own. Instead, they _depend_ on other packages for their functionality. For example, the [`scipy`
@@ -223,5 +226,20 @@ such as R, NumPy, SciPy and TensorFlow built using optimised, hardware specific
 libraries (such as Intel's MKL or NVIDIA's CUDA), which provides a speedup
 without having to change any of your code.
 
+## What's in a Conda package?
+
+A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html) 
+is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
+
+* system-level libraries
+* Python or other modules
+* executable programs and other components
+* metadata under the `info/` directory
+* a collection of files that are installed directly into an `install` prefix.
+
+Conda keeps track of the dependencies between packages and platforms; the Conda package format is
+identical across platforms and operating systems. All Conda packages have a specific sub-directory
+structure inside the archive file, the detail of what goes on in there is beyond the scope of this
+course.
 
 {% include links.md %}

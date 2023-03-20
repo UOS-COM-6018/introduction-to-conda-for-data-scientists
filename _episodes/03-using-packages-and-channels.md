@@ -3,7 +3,6 @@ title: "Using Packages and Channels"
 teaching: 20
 exercises: 10
 questions:
-- "What are Conda packages?"
 - "What are Conda channels?"
 - "Why should I be explicit about which channels my research project uses?"
 - "What should I do if a Python package isn't available via a Conda channel?"
@@ -14,27 +13,6 @@ keypoints:
 - "A Conda channel is a URL to a directory containing a Conda package(s)."
 - "Understand how to use Conda and Pip together effectively."
 ---
-
-## What are Conda packages?
-
-A conda package is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
-
-* system-level libraries
-* Python or other modules
-* executable programs and other components
-* metadata under the `info/` directory
-* a collection of files that are installed directly into an `install` prefix.
-
-Conda keeps track of the dependencies between packages and platforms; the conda package format is
-identical across platforms and operating systems.
-
-### Package Structure
-
-All conda packages have a specific sub-directory structure inside the file. There is a
-`bin` directory that contains any binaries for the package; a `lib` directory containing the
-relevant library files (e.g., the `.py` files); and an `info` directory containing package metadata.
-For a more details of the conda package specification, including discussions of the various
-metadata files, see the [docs](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html).
 
 ## What are Conda channels?
 
