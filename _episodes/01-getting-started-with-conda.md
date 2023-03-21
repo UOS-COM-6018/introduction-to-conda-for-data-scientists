@@ -68,6 +68,21 @@ When starting with programming we may not use many packages yet and the installa
 Nowadays there are several environment management systems following a similar idea:
 Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
 
+### Environment management
+
+An environment management system solves a number of problems commonly encountered by (data)
+scientists.
+
+*   An application you need for a research project requires different versions of your base
+    programming language or different versions of various third-party packages from the versions
+    that you are currently using.
+*   An application you developed as part of a previous research project that worked fine on your
+    system six months ago now no longer works.
+*   Code that was written for a joint research project works on your machine but not on your
+    collaborators' machines.
+*   An application that you are developing on your local machine doesn't provide the same results
+    when run on your remote cluster.
+
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 </script>
@@ -109,21 +124,6 @@ Instead of having to use multiple computers or virtual machines to run different
     fishstick --> run_spaceship_c["Run Spaceship.py ❌"]
     spaceship2 --> run_spaceship_d["Run Spaceship.py ✔️"]
 </pre>
-
-### Environment management
-
-An environment management system solves a number of problems commonly encountered by (data)
-scientists.
-
-*   An application you need for a research project requires different versions of your base
-    programming language or different versions of various third-party packages from the versions
-    that you are currently using.
-*   An application you developed as part of a previous research project that worked fine on your
-    system six months ago now no longer works.
-*   Code that was written for a joint research project works on your machine but not on your
-    collaborators' machines.
-*   An application that you are developing on your local machine doesn't provide the same results
-    when run on your remote cluster.
 
 An environment management system enables you to set up a new, project specific software environment
 containing specific Python versions as well as the versions of additional packages and
