@@ -55,10 +55,41 @@ Instead of having to use multiple computers or virtual machines to run different
 </script>
 
 <pre class="mermaid">
-    graph LR
-    A --- B
-    B-->C[fa:fa-ban forbidden]
-    B-->D(fa:fa-spinner);
+    graph TD;
+    subgraph C1["Bob's Computer"]
+        birdcore["
+            <b>'Birdcore' Environment</b> <br/> 
+            Python 3.6 <br/> 
+            Pandas 1.0.1 <br>
+            PySpark 2.4.8
+            "]
+        
+        spaceship1["
+            <b>'Spaceship' Environment</b> <br/>
+            Python 3.10 <br/>
+            Pandas 1.3.5 <br/>
+            Matplotlib 3.5.1"]        
+    end
+
+    subgraph C2["Fariba's Computer"]
+        fishstick["
+            <b>'Fishstick' Environment</b> <br/> 
+            Python 2.7 <br/> 
+            Numpy 1.14.4 <br>
+            Matplotlib 2.2.5
+            "]
+        
+        spaceship2["
+            <b>'Spaceship' Environment</b> <br/>
+            Python 3.10 <br/>
+            Pandas 1.3.5 <br/>
+            Matplotlib 3.5.1"]     
+    end
+
+    birdcore --> run_spaceship_a["Run Spaceship.py ❌"]
+    spaceship1 --> run_spaceship_b["Run Spaceship.py ✔️"]
+    fishstick --> run_spaceship_c["Run Spaceship.py ❌"]
+    spaceship2 --> run_spaceship_d["Run Spaceship.py ✔️"]
 </pre>
 
 ### Environment management
