@@ -2,6 +2,14 @@
 title: "Instructor Notes"
 ---
 
+# Modules, packages, libraries
+
+* Module: a collection of functions and variables, as in a script
+* Package: a collection of modules with an __init__.py file (can be empty), as in a directory with scripts
+* Library: a collection of packages with related functionality
+
+Library/Package are often used interchangeably.
+
 # Conda on HPC systems
 
 Many HPC systems make either Miniconda or Anaconda (or both!) available to users via 

@@ -30,15 +30,6 @@ keypoints:
 
 When working with a programming language, such as Python, that can do almost _anything_, one has to wonder how this is possible. You download Python, it is about 25 MB, how can everthing be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to doing almost _anything_. You can see this already when you start programming. After learning some very basics, you often learn how to *import* something into your script or session.
 
-> ## Modules, packages, libraries
->
-> * Module: a collection of functions and variables, as in a script
-> * Package: a collection of modules with an __init__.py file (can be empty), as in a directory with scripts
-> * Library: a collection of packages with realted functionality
->
-> Library/Package are often used interchangeably.
-{: .callout}
-
 ### Dependencies
 
 A bit further into your programming career you may notice/have noticed that many packages do not just do everything on
@@ -58,6 +49,17 @@ version 1.5 in this case would not be sufficient.
 When starting with programming we may not use many packages yet and the installation may be straightforward. But for most people, there comes a time when one version of a package or also the programming language is not enough anymore. You may find an older tool that depends on an older version of your programming language (e.g. Python 2.7), but many of your other tools depend on a newer version (e.g. Python 3.6). You could now start up another computer or virtual machine to run the other version of the programming language, but this is not very handy, since you may want to use the tools together in a workflow later on. Here, *environments* are one solution to the problem.
 Nowadays there are several environment management systems following a similar idea:
 Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+</script>
+
+<pre class="mermaid">
+    graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+</pre>
 
 ### Environment management
 

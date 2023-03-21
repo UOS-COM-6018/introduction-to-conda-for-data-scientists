@@ -56,7 +56,7 @@ keypoints:
 >
 {: .callout}
 
-## What is a Conda environment
+## What is a Conda environment?
 
 A [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html)
 is a directory that contains a specific collection of Conda packages that you have installed. For
