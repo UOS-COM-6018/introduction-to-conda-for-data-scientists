@@ -64,7 +64,47 @@ When starting with programming we may not use many packages yet and the installa
 Nowadays there are several environment management systems following a similar idea:
 Instead of having to use multiple computers or virtual machines to run different versions of the same package, you can install packages in isolated environments.
 
-### Environment management
+### Package management
+
+A good package management system greatly simplifies the process of installing software by...
+
+1.  identifying and installing compatible versions of software and all required dependencies.
+2.  handling the process of updating software as more recent versions become available.
+
+If you use some flavor of Linux, then you are probably familiar with the package manager for your
+Linux distribution (i.e., `apt` on Ubuntu, `yum` on CentOS); if you are a Mac OSX user then you
+might be familiar with the [Home Brew Project](https://brew.sh/) which brings a Linux-like package
+management system to Mac OS; if you are a Windows OS user, then you may not be terribly familiar
+with package managers as there isn't really a standard package manager for Windows (although there
+is the [Chocolatey Project](https://chocolatey.org/)).
+
+Operating system package management tools are great but these tools actually solve a more general
+problem than you often face as a (data) scientist.  As a (data) scientist you typically use one or
+two core scripting languages (i.e.,  Python, R, SQL). Each scripting language has multiple
+versions that can potentially be installed and each scripting language will also have a large
+number of third-party packages that will need to be installed. The exact version of your core
+scripting language(s) and additional, third-party packages will also probably change from project
+to project.
+
+## Why should I use a package and environment management system?
+
+Installing software is hard. Installing scientific software is often even more challenging. In
+order to minimize the burden of installing and updating software (data) scientists often install
+software packages that they need for their various projects system-wide.
+
+Installing software system-wide has a number of drawbacks:
+
+*   It can be difficult to figure out what software is required for any particular research project.
+*   It is often impossible to install different versions of the same software package at the same
+    time.
+*   Updating software required for one project can often "break" the software installed for another
+    project.
+
+Put differently, installing software system-wide creates complex dependencies between your research
+projects that shouldn't really exist!
+
+Rather than installing software system-wide, wouldn't it be great if we could install software
+separately for each research project?
 
 An environment management system solves a number of problems commonly encountered by (data)
 scientists.
@@ -130,48 +170,6 @@ required dependencies that are all mutually compatible.
 *   Make your projects self-contained and reproducible by capturing all package dependencies in a
     single requirements file.
 *   Allow you to install packages on a host on which you do not have admin privileges.
-
-### Package management
-
-A good package management system greatly simplifies the process of installing software by...
-
-1.  identifying and installing compatible versions of software and all required dependencies.
-2.  handling the process of updating software as more recent versions become available.
-
-If you use some flavor of Linux, then you are probably familiar with the package manager for your
-Linux distribution (i.e., `apt` on Ubuntu, `yum` on CentOS); if you are a Mac OSX user then you
-might be familiar with the [Home Brew Project](https://brew.sh/) which brings a Linux-like package
-management system to Mac OS; if you are a Windows OS user, then you may not be terribly familiar
-with package managers as there isn't really a standard package manager for Windows (although there
-is the [Chocolatey Project](https://chocolatey.org/)).
-
-Operating system package management tools are great but these tools actually solve a more general
-problem than you often face as a (data) scientist.  As a (data) scientist you typically use one or
-two core scripting languages (i.e.,  Python, R, SQL). Each scripting language has multiple
-versions that can potentially be installed and each scripting language will also have a large
-number of third-party packages that will need to be installed. The exact version of your core
-scripting language(s) and additional, third-party packages will also probably change from project
-to project.
-
-## Why should I use a package and environment management system?
-
-Installing software is hard. Installing scientific software is often even more challenging. In
-order to minimize the burden of installing and updating software (data) scientists often install
-software packages that they need for their various projects system-wide.
-
-Installing software system-wide has a number of drawbacks:
-
-*   It can be difficult to figure out what software is required for any particular research project.
-*   It is often impossible to install different versions of the same software package at the same
-    time.
-*   Updating software required for one project can often "break" the software installed for another
-    project.
-
-Put differently, installing software system-wide creates complex dependencies between your research
-projects that shouldn't really exist!
-
-Rather than installing software system-wide, wouldn't it be great if we could install software
-separately for each research project?
 
 > ## Discussion
 >
