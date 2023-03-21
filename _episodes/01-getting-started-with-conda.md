@@ -157,14 +157,6 @@ number of third-party packages that will need to be installed. The exact version
 scripting language(s) and additional, third-party packages will also probably change from project
 to project.
 
-> ## Package management systems for Python
-> Also here, Conda is not the only way; Python for example has many more ways of working with packages:
-> * [pip](https://pip.pypa.io/en/stable/)
-> * [Poetry](https://python-poetry.org/)
-> * [PDM](https://pdm.fming.dev/latest/)
-> * ...
-{: .callout}
-
 ## Why should I use a package and environment management system?
 
 Installing software is hard. Installing scientific software is often even more challenging. In

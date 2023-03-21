@@ -10,13 +10,20 @@ title: "Instructor Notes"
 
 Library/Package are often used interchangeably.
 
-## Environment management systems for Python
+# Environment management systems for Python
 
 Conda is not the only way; Python for example has many more ways of working with environments:
 * [virtualenv](https://virtualenv.pypa.io/en/latest/)
 * [pipenv](https://pipenv.pypa.io/en/latest/)
 * [venv](https://docs.python.org/3/library/venv.html)
 * [pyenv](https://github.com/pyenv/pyenv)
+* ...
+
+# Package management systems for Python
+Also here, Conda is not the only way; Python for example has many more ways of working with packages:
+* [pip](https://pip.pypa.io/en/stable/)
+* [Poetry](https://python-poetry.org/)
+* [PDM](https://pdm.fming.dev/latest/)
 * ...
 
 # Conda on HPC systems
