@@ -3,13 +3,9 @@ title: "Getting Started with Conda"
 teaching: 15
 exercises: 5
 questions:
-- "What is a package?"
-- "What is a dependency?"
-- "What is an environment?"
-- "What is Conda?"
+- "What are the key terms I need to understand such as "package", "dependency" and "environment"?
 - "Why should I use a package and environment management system as part of my research workflow?"
-- "Why use Conda ?"
-- "What's inside a Conda package?"
+- "What is Conda and why should I use it?
 objectives:
 - "Understand why you should use a package and environment management system as part of your
   (data) science workflow."
