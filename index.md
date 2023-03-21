@@ -3,7 +3,6 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-This lesson is an introduction to Conda for (data) scientists. 
 [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) is  an open source package and 
 environment management system that runs on Windows, macOS and Linux. Conda installs, runs, and 
 updates packages and their dependencies. Conda easily creates, saves, loads, and switches between 
