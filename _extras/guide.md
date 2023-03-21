@@ -2,7 +2,7 @@
 title: "Instructor Notes"
 ---
 
-## Conda on HPC systems
+# Conda on HPC systems
 
 Many HPC systems make either Miniconda or Anaconda (or both!) available to users via 
 [Environment Modules](http://modules.sourceforge.net/). In this case a user will need to load the 
@@ -21,6 +21,13 @@ $ module load miniconda
 > these changes using `conda init --reverse`, then `conda` will still be available even after 
 > unloading or purging the `miniconda` module.  This opens the distinct possibility of a user 
 > accidently leaving his/her shell environment in an unexpected state.
-{: .callout}    
+{: .callout}
+
+# Virtual Machines
+
+A **virtual machine** is a representation of a real, physical computer created using software. A single
+physical computer can host multiple virtual machines and each can be configured completely differently
+including having different operating systems - a physical computer running Windows can host Linux
+virtual machines, and *vice versa*.
 
 {% include links.md %}
