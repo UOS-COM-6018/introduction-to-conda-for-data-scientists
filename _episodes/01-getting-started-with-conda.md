@@ -226,7 +226,7 @@ such as R, NumPy, SciPy and TensorFlow built using optimised, hardware specific
 libraries (such as Intel's MKL or NVIDIA's CUDA), which provides a speedup
 without having to change any of your code.
 
-## What's in a Conda package?
+### What's in a Conda package?
 
 A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html) 
 is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
