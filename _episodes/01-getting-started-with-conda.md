@@ -171,25 +171,6 @@ required dependencies that are all mutually compatible.
     single requirements file.
 *   Allow you to install packages on a host on which you do not have admin privileges.
 
-> ## Discussion
->
-> What are some of the _potential_ benefits from installing software separately for each project?
-> What are some of the _potential_ costs?
->
-> > ## Solution
-> >
-> > You may notice that many of the potential benefits from installing software separately for
-> > each project require the ability to isolate the projects' software environments from one
-> > another (i.e., solve the environment management problem). Once you have figured out how to
-> > isolate project-specific software environments, you will still need to have some way to manage
-> > software packages appropriately (i.e., solve the package management problem).
-> {: .solution}
-{: .challenge}
-
-What we hope you will have taken away from the discussion exercise is an appreciation for the fact
-that in order to install project-specific software environments you need to solve two complementary
-challenges: environment management and package management.
-
 ## Conda
 
 From the [official Conda documentation](https://conda.io/projects/conda/en/latest/index.html).
