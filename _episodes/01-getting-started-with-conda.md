@@ -26,9 +26,25 @@ keypoints:
 
 ## Packages and Environments
 
+When working with a programming language, such as Python, that can do almost _anything_, one has to wonder how this is possible. You download Python, it is about 25 MB, how can everything be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use additional software for being able to doing almost _anything_. You can see this already when you start programming. After learning some very basics, you often learn how to *import* something into your script or session.
+
 ### Packages
 
-When working with a programming language, such as Python, that can do almost _anything_, one has to wonder how this is possible. You download Python, it is about 25 MB, how can everthing be included in this small data package. The answer is - it is not. Python, as well as many other programming languages use external libraries or packages for being able to doing almost _anything_. You can see this already when you start programming. After learning some very basics, you often learn how to *import* something into your script or session.
+Additional software is grouped together into _packages_ e.g. `numpy` or `pytorch` to make it easier to
+install just the bits we need. Different programming languages have different types of package, and some have
+several.
+
+A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html), for example, 
+is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
+
+* system-level libraries
+* Python or other modules
+* executable programs and other components
+* metadata under the `info/` directory
+* a collection of files that are installed directly into an `install` prefix.
+
+All Conda packages have a specific sub-directory structure inside the archive file, the detail of what 
+goes on in there is beyond the scope of this course.
 
 ### Dependencies
 
@@ -43,6 +59,9 @@ it may happen that a function call changes and/or functionalities are added or r
 another, this may create issues. Therefore it is not only important to know that e.g. `scipy` depends on `numpy` and
 `matplotlib`, but also could be that it depends on `numpy` version >= 1.19.5 and `matplotlib` version >= 2. `numpy`
 version 1.5 in this case would not be sufficient.
+
+Conda keeps track of the dependencies between packages and platforms; the Conda package format is
+identical across platforms and operating systems. 
 
 ### Environments
 
@@ -250,21 +269,5 @@ Additionally, Anaconda provides commonly used data science libraries and tools,
 such as R, NumPy, SciPy and TensorFlow built using optimised, hardware specific
 libraries (such as Intel's MKL or NVIDIA's CUDA), which provides a speedup
 without having to change any of your code.
-
-### What's in a Conda package?
-
-A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html) 
-is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
-
-* system-level libraries
-* Python or other modules
-* executable programs and other components
-* metadata under the `info/` directory
-* a collection of files that are installed directly into an `install` prefix.
-
-Conda keeps track of the dependencies between packages and platforms; the Conda package format is
-identical across platforms and operating systems. All Conda packages have a specific sub-directory
-structure inside the archive file, the detail of what goes on in there is beyond the scope of this
-course.
 
 {% include links.md %}
