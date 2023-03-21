@@ -60,8 +60,7 @@ another, this may create issues. Therefore it is not only important to know that
 `matplotlib`, but also could be that it depends on `numpy` version >= 1.19.5 and `matplotlib` version >= 2. `numpy`
 version 1.5 in this case would not be sufficient.
 
-Conda keeps track of the dependencies between packages and platforms; the Conda package format is
-identical across platforms and operating systems. 
+Conda keeps track of the dependencies between packages and platforms.
 
 ### Environments
 
