@@ -3,15 +3,13 @@ title: "Getting Started with Conda"
 teaching: 15
 exercises: 5
 questions:
-- "What are the key terms I need to understand such as "package", "dependency" and "environment"?
+- "What are the key terms I need to understand such as 'package', 'dependency' and 'environment'?"
 - "Why should I use a package and environment management system as part of my research workflow?"
-- "What is Conda and why should I use it?
+- "What is Conda and why should I use it?"
 objectives:
 - "Understand why you should use a package and environment management system as part of your
   (data) science workflow."
 - "Explain the benefits of using Conda as part of your (data) science workflow."
-objectives:
-- "None"
 keypoints:
 - "Conda is a platform agnostic, open source package and environment management system."
 - "Using a package and environment management tool facilitates portability and reproducibility
