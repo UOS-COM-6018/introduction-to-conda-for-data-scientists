@@ -10,6 +10,8 @@ objectives:
 - "Understand why you should use a package and environment management system as part of your
   (data) science workflow."
 - "Explain the benefits of using Conda as part of your (data) science workflow."
+objectives:
+- "None"
 keypoints:
 - "Conda is a platform agnostic, open source package and environment management system."
 - "Using a package and environment management tool facilitates portability and reproducibility
@@ -30,7 +32,7 @@ Additional software is grouped together into _packages_ e.g. `numpy` or `pytorch
 install just the bits we need. Different programming languages have different types of package, and some have
 several.
 
-A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html), for example, 
+A [Conda package](https://docs.conda.io/projects/conda-build/en/latest/resources/package-spec.html), for example,
 is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
 
 * system-level libraries
@@ -39,7 +41,7 @@ is a compressed archive file (`.tar.bz2` or `.conda`) that contains:
 * metadata under the `info/` directory
 * a collection of files that are installed directly into an `install` prefix.
 
-All Conda packages have a specific sub-directory structure inside the archive file, the detail of what 
+All Conda packages have a specific sub-directory structure inside the archive file, the detail of what
 goes on in there is beyond the scope of this course.
 
 ### Dependencies
@@ -127,32 +129,32 @@ scientists.
     graph TD;
     subgraph C1["Bob's Computer"]
         birdcore["
-            <b>'Birdcore' Environment</b> <br/> 
-            Python 3.6 <br/> 
+            <b>'Birdcore' Environment</b> <br/>
+            Python 3.6 <br/>
             Pandas 1.0.1 <br>
             PySpark 2.4.8
             "]
-        
+
         spaceship1["
             <b>'Spaceship' Environment</b> <br/>
             Python 3.10 <br/>
             Pandas 1.3.5 <br/>
-            Matplotlib 3.5.1"]        
+            Matplotlib 3.5.1"]
     end
 
     subgraph C2["Fariba's Computer"]
         fishstick["
-            <b>'Fishstick' Environment</b> <br/> 
-            Python 2.7 <br/> 
+            <b>'Fishstick' Environment</b> <br/>
+            Python 2.7 <br/>
             Numpy 1.14.4 <br>
             Matplotlib 2.2.5
             "]
-        
+
         spaceship2["
             <b>'Spaceship' Environment</b> <br/>
             Python 3.10 <br/>
             Pandas 1.3.5 <br/>
-            Matplotlib 3.5.1"]     
+            Matplotlib 3.5.1"]
     end
 
     birdcore --> run_spaceship_a["Run Spaceship.py ❌"]
