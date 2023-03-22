@@ -205,7 +205,7 @@ your usual version of Python in your normal environment.
 In Python there is a built in package manager `pip` and virtual environment manager `venv`, so
 why use Conda? Whilst there are many different package and environment management systems that solve either the
 package management problem or the environment management problem, Conda solves both of these
-problems and explicitly targeted at (data) science use cases.
+problems and is explicitly targeted at (data) science use cases.
 
 * Conda provides prebuilt packages, avoiding the need to deal with compilers, or
   trying to work out how exactly to set up a specific tool. Fields such as
