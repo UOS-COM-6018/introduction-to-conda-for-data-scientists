@@ -17,7 +17,7 @@ Conda is not the only way; Python for example has many more ways of working with
 * [pipenv](https://pipenv.pypa.io/en/latest/)
 * [venv](https://docs.python.org/3/library/venv.html)
 * [pyenv](https://github.com/pyenv/pyenv)
-* ...
+* [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
 
 # Package management systems for Python
 Also here, Conda is not the only way; Python for example has many more ways of working with packages:
