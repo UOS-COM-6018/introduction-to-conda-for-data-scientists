@@ -1,5 +1,5 @@
 ---
-title: "Using Packages and Channels"
+title: "Using Conda Channels and PyPI (`pip`)"
 teaching: 20
 exercises: 10
 questions:
