@@ -1,9 +1,8 @@
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/carpentries-incubator/introduction-to-conda-for-data-scientists/binder?urlpath=lab)
 
-# Introduction to Conda for (Data) Scientists
+# Conda environments for effective and reproducible research
 
-This lesson is an introduction to Conda for (data) scientists. 
 [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) is  an open source package and 
 environment management system that runs on Windows, macOS and Linux. Conda installs, runs, and 
 updates packages and their dependencies. Conda easily creates, saves, loads, and switches between 
