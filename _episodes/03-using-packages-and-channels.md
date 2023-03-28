@@ -44,7 +44,7 @@ channels.
 > (from `defaults`).
 {: .callout}
 
-## My package isn't available on the `defaults` channel! What should I do?
+## My package isn't available in the `default` channels! What should I do?
 
 You may find that packages (or often more recent versions of packages!) that you need to
 install for your project are not available on the `defaults` channel.  In this case you could try the
