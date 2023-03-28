@@ -26,8 +26,7 @@ searches a standard set of channels, referred to as `default`. The `default` cha
     This channel is included in conda's defaults channel. When creating new environments, MRO is
     now chosen as the default R implementation.
 
-Collectively, the Anaconda managed channels are referred to as the `defaults` channel because,
-unless otherwise specified, packages installed using `conda` will be downloaded from these
+Unless otherwise specified, packages installed using `conda` will be downloaded from the `default`
 channels.
 
 > ## The `conda-forge` channel
