@@ -164,7 +164,7 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 > > ~~~
 > > {: .language-bash}
 > >
-> > Hint: For the lazy typers: the `--channel` argument can also be shortened to `-c`, for more
+> > Hint: the `--channel` argument can also be shortened to `-c`, for more
 > > abbreviations, see also the
 > > [Conda command reference](https://docs.conda.io/projects/conda/en/latest/commands.html) .
 > {: .solution}
