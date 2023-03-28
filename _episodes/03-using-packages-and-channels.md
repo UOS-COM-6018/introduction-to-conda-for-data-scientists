@@ -18,20 +18,18 @@ keypoints:
 
 Conda packages are downloaded from
 remote channels, which are URLs to directories containing conda packages. The `conda` command
-searches a standard set of channels, referred to as `default`. The `default` channels include:
+searches a standard set of channels, referred to as `defaults`. The `defaults` channels include:
 
 *   `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in
-    conda's defaults channel as the top priority channel.
+    `defaults` as the top priority channel.
 *   `r`: Microsoft R Open conda packages and [Anaconda, Inc.'s R conda packages](https://anaconda.org/r/repo).
-    This channel is included in conda's defaults channel. When creating new environments, MRO is
-    now chosen as the default R implementation.
 
-Unless otherwise specified, packages installed using `conda` will be downloaded from the `default`
+Unless otherwise specified, packages installed using `conda` will be downloaded from the `defaults`
 channels.
 
 > ## The `conda-forge` channel
 >
-> In addition to the `default` channels that are managed by Anaconda Inc., there is another channel called that also has
+> In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel called that also has
 > a special status. The [Conda-Forge](https://github.com/conda-forge) project "_is a community led collection of
 > recipes, build infrastructure and distributions for the conda package manager._"
 >
@@ -44,11 +42,11 @@ channels.
 > (from `defaults`).
 {: .callout}
 
-## My package isn't available in the `default` channels! What should I do?
+## My package isn't available in the `defaults` channels! What should I do?
 
 You may find that packages (or often more recent versions of packages!) that you need to
-install for your project are not available on the `defaults` channel.  In this case you could try the
-following.
+install for your project are not available on the `defaults` channels.  In this case you could try the
+following channels.
 
 1.  `conda-forge`: the `conda-forge` channel contains a large number of community curated Conda
     packages. Typically the most recent versions of packages that are generally available via the
@@ -58,7 +56,7 @@ following.
     when installing your prefered packages.
 
 For example, [Kaggle](https://www.kaggle.com/) publishes a Python 3 API that can be used to interact with Kaggle
-datasets, kernels and competition submissions. You can search for the package on the `defaults` channels but you will
+datasets, kernels and competition submissions. You can search for the package on the `default` channels but you will
 not find it!
 
 ~~~
