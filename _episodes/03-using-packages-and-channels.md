@@ -11,7 +11,7 @@ objectives:
 keypoints:
 - "A package is a compressed archive file containing system-level libraries, Python or other modules, executable programs and other components, and associated metadata."
 - "A Conda channel is a URL to a directory containing a Conda package(s)."
-- "Understand how to use Conda and Pip together effectively."
+- "Conda and Pip can be used together effectively."
 ---
 
 ## What are Conda channels?
