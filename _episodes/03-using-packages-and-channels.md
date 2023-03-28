@@ -46,58 +46,10 @@ channels.
 > (from `defaults`).
 {: .callout}
 
-## How do I install a package from a specific channel?
-
-You can install a package from a specific channel into the currently activate environment by
-passing the `--channel` option to the `conda install` command as follows.
-
-~~~
-$ conda activate machine-learning-env
-$ conda install scipy=1.10.0 --channel conda-forge
-~~~
-{: .language-bash}
-
-
-You can also install a package from a specific channel into a named environment (using `--name`). For example, the
-following command installs the `scipy` package from the `conda-forge` channel into the environment
-called `machine-learning-env` which we created earlier.
-
-~~~
-$ conda install scipy=1.10.0 --channel conda-forge --name machine-learning-env
-~~~
-{: .language-bash}
-
-The following command would install `tensorflow` package from the `conda-forge` channel into the environment called
-`machine-learning-env`.
-
-~~~
-$ conda install tensorflow=2.11.0 --channel conda-forge --name machine-learning-env
-~~~
-{: .language-bash}
-
-> ## Channel priority
->
-> You may specify multiple channels for installing packages by passing the `--channel` argument
-> multiple times.
->
-> ~~~
-> $ conda install scipy=1.10.0 --channel conda-forge --channel bioconda
-> ~~~
-> {: .language-bash}
->
-> Channel priority decreases from left to right - the first argument has higher priority than the
-> second. For reference, [bioconda](https://bioconda.github.io/) is a channel for the conda package manager specializing
-> in bioinformatics software. For those interested in learning more about the Bioconda project, checkout the project's
-> [GitHub](https://bioconda.github.io/) page.
->
-> Please note that in our example, adding `bioconda` channel is irrelevant because `scipy` is no longer available on
-> `bioconda` channel.
-{: .callout}
-
 ## My package isn't available on the `defaults` channel! What should I do?
 
 You may find that packages (or often more recent versions of packages!) that you need to
-install for your project are not available on the `defaults` channel.  In this case you should try the
+install for your project are not available on the `defaults` channel.  In this case you could try the
 following.
 
 1.  `conda-forge`: the `conda-forge` channel contains a large number of community curated Conda
@@ -106,9 +58,6 @@ following.
 2. `bioconda`: the `bioconda` channel also contains a large number of Bioinformatics curated conda packages.
     `bioconda` channel is meant to be used with `conda-forge`, you should not worried about using the two channels
     when installing your prefered packages.
-3.  `pip`: if a package is not otherwise available via `conda-forge` (or some
-    domain-specific channel like `bioconda`) a package can be installed into a conda
-    environment from PyPI using `pip`. It's fine to just use `pip` for installing most packages.
 
 For example, [Kaggle](https://www.kaggle.com/) publishes a Python 3 API that can be used to interact with Kaggle
 datasets, kernels and competition submissions. You can search for the package on the `defaults` channels but you will
@@ -141,9 +90,9 @@ and use the search bar at the top of the page.
 ~~~
 {: .language-bash}
 
-The [official installation instructions](https://github.com/Kaggle/kaggle-api) suggest downloading
-the `kaggle` package using `pip`. But since we are using `conda`, let's check whether the
-package exists on at least `conda-forge` channel before proceeding to use `pip`.
+Let's check whether the package exists on at least `conda-forge` channel. 
+Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api) 
+suggest a different way to install.
 
 ~~~
 $ conda search --channel conda-forge kaggle
@@ -176,6 +125,25 @@ it.
 $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 ~~~
 {: .language-bash}
+
+> ## Channel priority
+>
+> You may specify multiple channels for installing packages by passing the `--channel` argument
+> multiple times.
+>
+> ~~~
+> $ conda install scipy=1.10.0 --channel conda-forge --channel bioconda
+> ~~~
+> {: .language-bash}
+>
+> Channel priority decreases from left to right - the first argument has higher priority than the
+> second. For reference, [bioconda](https://bioconda.github.io/) is a channel for the conda package manager specializing
+> in bioinformatics software. For those interested in learning more about the Bioconda project, checkout the project's
+> [GitHub](https://bioconda.github.io/) page.
+>
+> Please note that in our example, adding `bioconda` channel is irrelevant because `scipy` is no longer available on
+> `bioconda` channel.
+{: .callout}
 
 ## What actually happens when I install packages?
 
