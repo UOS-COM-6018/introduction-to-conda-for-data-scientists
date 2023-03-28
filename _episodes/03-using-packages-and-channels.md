@@ -184,33 +184,6 @@ dependencies are needed and making sure that they will all work together.
 > {: .solution}
 {: .challenge}
 
-> ## Alternative syntax for installing packages from specific channels
->
-> There exists an alternative syntax for installing conda packages from specific channels that
-> more explicitly links the channel being used to install a particular package.
->
-> ~~~
-> $ conda install conda-forge::tensorflow --name computer-vision-project
-> ~~~
-> {: .language-bash}
->
-> Repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, and `matplotlib` from the
-> `conda-forge` channel and `pytorch` and `torchvision` from the `pytorch` channel.
->
-> > ## Solution
-> >
-> > One possibility would be to use the `conda create` command as follows.
-> >
-> > ~~~
-> > $ cd ~/Desktop/introduction-to-conda-for-data-scientists
-> > $ mkdir my-final-project
-> > $ cd my-final-project/
-> > $ conda create --name my-final-project conda-forge::python=3.10 conda-forge::jupyterlab conda-forge::matplotlib pytorch::pytorch=1.13.1  pytorch::torchvision=0.14.1
-> > ~~~
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
-
 ## Using `pip` and Conda
 
 You can use the default Python package
