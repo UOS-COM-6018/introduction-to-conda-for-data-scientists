@@ -16,10 +16,9 @@ keypoints:
 
 ## What are Conda channels?
 
-Again from the [Conda documentation](https://conda.io/en/latest/), conda packages are downloaded from
+Conda packages are downloaded from
 remote channels, which are URLs to directories containing conda packages. The `conda` command
-searches a default set of channels, and packages are automatically downloaded and updated from the
-[Anaconda Cloud channels](https://repo.anaconda.com/pkgs/).
+searches a standard set of channels, referred to as `default`. The `default` channels include:
 
 *   `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in
     conda's defaults channel as the top priority channel.
