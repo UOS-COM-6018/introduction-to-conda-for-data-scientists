@@ -211,10 +211,10 @@ dependencies are needed and making sure that they will all work together.
 > {: .solution}
 {: .challenge}
 
-## A Python package isn't available on any Conda channel! What should I do?
+## Using `pip` and Conda
 
-If a Python package that you need isn't available on any Conda channel, then you can use the default Python package
-manager [`pip`](https://pip.pypa.io/en/stable/) to install it  from [Python Package Index
+You can use the default Python package
+manager [`pip`](https://pip.pypa.io/en/stable/) to install packages from [Python Package Index
 (PyPI)](https://pypi.org/). However, there are a few [potential
 issues](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) that you should be aware of when using `pip` to
 install Python packages when using Conda.
@@ -267,9 +267,8 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 
 > ## Conda (+Pip)
 >
-> Pitfalls of using Conda and `pip` together can be avoided by adopting the following practices.
->
-> * Always be sure your desired environment is *active* before installing anything using `pip`.
+> Pitfalls of using Conda and `pip` together can be avoided by 
+> *always ensuring your desired environment is *active* before installing anything using `pip`.*
 {: .callout}
 
 > ## Installing packages into Conda environments using `pip`
