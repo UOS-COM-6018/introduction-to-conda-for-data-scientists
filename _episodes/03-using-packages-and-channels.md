@@ -56,7 +56,7 @@ following channels.
     when installing your prefered packages.
 
 For example, [Kaggle](https://www.kaggle.com/) publishes a Python 3 API that can be used to interact with Kaggle
-datasets, kernels and competition submissions. You can search for the package on the `default` channels but you will
+datasets, kernels and competition submissions. You can search for the package on the `defaults` channels but you will
 not find it!
 
 ~~~
