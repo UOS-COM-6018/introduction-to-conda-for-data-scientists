@@ -160,7 +160,7 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 > > and packages required.
 > >
 > > ~~~
-> > $ conda create --name fast-analysis-project --channel conda-forge python=3.10 jupyterlab polars
+> > $ conda create --name fast-analysis-project --channel conda-forge python=3.10 jupyterlab polars matplotlib
 > > ~~~
 > > {: .language-bash}
 > >
