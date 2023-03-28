@@ -147,26 +147,20 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 
 > ## Specifying channels when installing packages
 >
-> Like many projects, [`PyTorch`](https://pytorch.org/) has its own
-> [channel](https://anaconda.org/pytorch) on Anaconda Cloud. This channel has several interesting
-> packages, in particular `pytorch` (PyTorch core) and `torchvision` (datasets, transforms, and
-> models specific to computer vision).
+> `polars` is an alternative to `pandas` written in the Rust programming language, so it runs faster.
 >
-> Create a new directory called `computer-vision-project` and then create a Python 3.10 environment called
-> `computer-vision-project` with the two packages listed above. Also include the most recent versions of `jupyterlab`
+> Create a Python 3.10 environment called
+> `fast-analysis-project` with the `polars` package. Also include the most recent versions of `jupyterlab`
 > (so you have a nice UI) and `matplotlib` (so you can make plots) in your environment .
 >
 > > ## Solution
 > >
-> > In order to create a new environment you use the `conda create` command as follows. After making the directory we
-> check what versions of `pytorch` and `torchvision` are available so you can install explicit versions of these. This
-> is done using the `base` Conda environment. Then you can create a new Conda environment with the versions of Python,
-> and packages required
+> > Optionally, check what versions of `polars` are available so you can install a specific version. 
+> > Then create a new Conda environment (`conda create`) with the versions of Python,
+> > and packages required.
 > >
 > > ~~~
-> > $ mkdir my-computer-vision-project
-> > $ cd my-computer-vision-project/
-> > $ conda create --name my-computer-vision-project --channel pytorch python=3.10 jupyterlab pytorch=1.13.1 torchvision=0.14.1 matplotlib
+> > $ conda create --name fast-analysis-project --channel conda-forge python=3.10 jupyterlab polars
 > > ~~~
 > > {: .language-bash}
 > >
