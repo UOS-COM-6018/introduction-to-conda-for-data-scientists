@@ -145,14 +145,6 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 > `bioconda` channel.
 {: .callout}
 
-## What actually happens when I install packages?
-
-During the installation process, files are extracted into the specified environment (defaulting to
-the current environment if none is specified). Installing the files of a Conda package into an
-environment can be thought of as changing the directory to an environment, and then downloading
-and extracting the package and its dependencies. Conda does the hard work of figuring out what
-dependencies are needed and making sure that they will all work together.
-
 > ## Specifying channels when installing packages
 >
 > Like many projects, [`PyTorch`](https://pytorch.org/) has its own

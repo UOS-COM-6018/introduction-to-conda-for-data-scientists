@@ -197,6 +197,15 @@ $ conda create --name basic-scipy-env ipython matplotlib=3.7 numpy=1.9.3 scipy=1
 > {: .solution}
 {: .challenge}
 
+> ## What actually happens when I install packages?
+> 
+> During the installation process, files are extracted into the specified environment (defaulting to
+> the current environment if none is specified). Installing the files of a Conda package into an
+> environment can be thought of as changing the directory to an environment, and then downloading
+> and extracting the package and its dependencies. Conda does the hard work of figuring out what
+> dependencies are needed and making sure that they will all work together.
+{: .callout}
+
 ## Activating an existing environment
 
 Activating environments is essential to making the software in environments work well (or
