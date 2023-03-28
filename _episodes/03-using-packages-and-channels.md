@@ -148,24 +148,10 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 ## What actually happens when I install packages?
 
 During the installation process, files are extracted into the specified environment (defaulting to
-the current environment if none is specified). Installing the files of a conda package into an
+the current environment if none is specified). Installing the files of a Conda package into an
 environment can be thought of as changing the directory to an environment, and then downloading
-and extracting the package and its dependencies.
-
-For example, when you `conda install` a package that exists in a channel and has no dependencies,
-conda does the following.
-
-1. looks at your configured channels (in priority)
-2. reaches out to the repodata associated with your channels/platform
-3. parses repodata to search for the package
-4. once the package is found, conda pulls it down and installs
-
-The [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/installing-with-conda.html)
-has a nice decision tree that describes the package installation process.
-
-<p align="center">
-    <img alt="Installing with Conda" src="../fig/installing-with-conda.png" width="250">
-</p>
+and extracting the package and its dependencies. Conda does the hard work of figuring out what
+dependencies are needed and making sure that they will all work together.
 
 > ## Specifying channels when installing packages
 >
