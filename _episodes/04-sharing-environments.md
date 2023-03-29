@@ -154,7 +154,7 @@ we see that these five packages result in an environment with roughly 80 depende
 To export this list into an environment.yml file, you can use `--file` option to directly save the
 resulting YAML environment into a file. If the target for `--file` exists it will be over-written so make sure your
 filename is unique. So that we do not over-write `environment.yaml` we save the output to `machine-learning-env.yaml`
-instead and add it to
+instead and add it to the Git repository.
 
 ~~~
 $ conda env export --name machine-learning-env --file machine-learning-env.yml
@@ -163,6 +163,13 @@ $ git add machine-learning-env.yml
 $ git commit -m "Adding machine-learning-env.yml config file."
 ~~~
 {: .language-bash}
+
+> It is important to note that the exported file includes the `prefix:` entry which records the location the environment
+> is installed on your system. If you are to share this file with colleagues you should remove this line before doing so
+> as it is highly unlikely their virtual environments will be in the same location. You should also ideally remove the
+> line _before_ committing to Git.
+>
+{: .callout}
 
 
 This exported environment file may not *consistently* produce environments that are reproducible
@@ -347,63 +354,77 @@ The `--prune` option tells Conda to remove any dependencies that are no longer r
 > {: .solution}
 {: .challenge}
 
-> ## Installing via `pip` in `environment.yml` files
+## Installing via `pip` in `environment.yml` files
+
+Since you write `environment.yml` files for all of your projects, you might be wondering how to specify that packages
+should be installed using `pip` in the `environment.yml` file.  Here is an example `environment.yml` file that uses
+`pip` to install the `kaggle` and `yellowbrick` packages.
+
+~~~
+name: example
+
+dependencies:
+  - jupyterlab=1.0
+  - matplotlib=3.1
+  - pandas=0.24
+  - scikit-learn=0.21
+  - pip=22.3
+  - pip:
+    - kaggle
+    - yellowbrick==1.5
+~~~
+
+> Note two things...
 >
-> Since you write `environment.yml` files for all of your projects, you might be wondering how
-> to specify that packages should be installed using `pip` in the `environment.yml` file.  Here
-> is an example `environment.yml` file that uses `pip` to install the `kaggle` and `yellowbrick`
-> packages.
+> 1. `pip` is installed as a dependency under conda **first** (under the `dependencies` section) with an explicit
+> version (not essential).
+> 2. Following this there is then an entry for `- pip:` and under this is another list (indented further) where double
+> '==' instead of '=' for the explicit version that `pip` will install.
+>
+> In case you are wondering, the [Yellowbrick](https://www.scikit-yb.org/en/latest/) package is a suite of visual
+> diagnostic tools called “Visualizers” that extend the [Scikit-Learn](https://scikit-learn.org/stable/) API to allow
+> human steering of the model selection process. Recent version of Yellowbrick can also be installed using `conda` from
+> the `conda-forge` channel.
+>
+> ~~~
+> $ conda install --channel conda-forge yellowbrick=1.2 --name project-env
+> ~~~
+{: .callout}
+
+
+> An alternative way of installing dependencies via `pip` in your environment files is to store all the
+> packages that you wish to install via `pip` in a `requirements.txt` file and then add the following to
+> your `environment.yml file`
 >
 > ~~~
 > name: example
 >
 > dependencies:
->  - jupyterlab=1.0
->  - matplotlib=3.1
->  - pandas=0.24
->  - scikit-learn=0.21
->  - pip=22.3
->  - pip:
->    - kaggle==1.5
->    - yellowbrick==1.5
-> ~~~
->
-> Note the double '==' instead of '=' for the `pip` installation and that you should include `pip` itself
-> as a Conda dependency and then a subsection denoting those packages to be installed via `pip`. In case
-> you are wondering, the [Yellowbrick](https://www.scikit-yb.org/en/latest/) package is a suite of
-> visual diagnostic tools called “Visualizers” that extend the
-> [Scikit-Learn](https://scikit-learn.org/stable/) API to allow human steering of the model selection
-> process. Recent version of Yellowbrick can also be installed using `conda` from the `conda-forge` channel.
->
-> ~~~
-> $ conda install --channel conda-forge yellowbrick=1.2 --name project-env
-> ~~~
->
-> An alternative way of installing dependencies via `pip` in your environment files is to store all the
-> packages that you wish to install via `pip` in a `requirements.txt` file and then add the following to
-> your `environment.yml file`.
->
-> ```
-> ...
+>   - jupyterlab=1.0
+>   - matplotlib=3.1
+>   - pandas=0.24
+>   - scikit-learn=0.21
 >   - pip
 >   - pip:
 >     - -r file:requirements.txt
-> ```
+> ~~~
 >
-> Conda will then install your `pip` dependencies using `python -m pip install -r requirements.txt`
-> (after creating the Conda environment and installing all Conda installable dependencies).
+> Conda will install all dependencies, including the most recent version of `pip` and then in the background runs
+> `python -m pip install -r requirements.txt` to install the packages listed in the `requirements.txt` file.
 >
 > A `requirements.txt` file has a similar structure although it does not use YAML markup, instead it simply lists the
 > packages by name. If a specific version is required then as above it is specified with `==`. Remember you should not
-> include `pip` in the `requirements.txt` because this should be installed by and managed by Conda in your environment.
->
-> If you use a `requirements.txt` file then you should add this to your Git repository so it too is maintained under
-> version control.
+> include `pip` in the `requirements.txt` because this should be installed by and managed by Conda in your
+> environment. An example is shown below
 >
 > ```
 > kaggle
 > yellowbrick==1.5
 > ```
+
+> If you use a `requirements.txt` file then you should add this to your Git repository so it too is maintained under
+> version control.
+>
 {: .callout}
 
 {% include links.md %}
