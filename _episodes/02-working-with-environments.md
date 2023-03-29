@@ -389,14 +389,14 @@ scikit-learn-kaggle-env  /home/neil/miniconda3/envs/scikit-learn-kaggle-env
 ~~~
 {: .language-bash}
 
-## Where do Conda environments live?
+### Where do Conda environments live?
 
 Environments created with `conda`, by default, live in the `envs/` folder of your `miniconda3` (or `anaconda3`)
 directory the absolute path to which will look something the following: `/home/$USERNAME/miniconda3/envs` (Linux),
 `/Users/$USERNAME/miniconda3/envs` (OSX) or `C:\Users\$USERNAME\Anaconda3` (Windows). It's also been spotted in
 `C:\ProgramData\miniconda3\envs`.
 
-Running `ls` (Linux or OSX) / `dir` (Windows) on your anaconda `envs/` directory will list out the directories
+Running `ls` (Linux or OSX) / `dir` (Windows) on your anaconda `envs/` directory will list the directories
 containing the existing Conda environments.
 
 > ## Finding Conda

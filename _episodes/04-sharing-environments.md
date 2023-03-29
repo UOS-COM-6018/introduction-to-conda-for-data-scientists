@@ -89,20 +89,18 @@ Conda environment across updates.
 
 > ## *Always* version control your `environment.yml` files!
 >
-> While you should *never* version control the contents of your `~/miniconda/env/` environment sub-directory,
-> you should *always* version control your `environment.yml` files. Version controlling your
-> `environment.yml` files together with your project's source code means that you always know
-> which versions of which packages were used to generate your results at any particular point in
-> time.
->
 > Version control is a system of keeping track of changes that are made to files, in this case the `environment.yml`
-> file. It's really useful to do so if for example you make a change, for example updating a specific version of a
-> package and you find it breaks something in your environment or when running your code as you then have a record of
-> what it previously was and can revert the changes.
+> file. It's really useful to do so if for example you make and update a specific version of a package and you find it
+> breaks something in your environment or when running your code as you then have a record of what it previously was and
+> can revert the changes.
 >
 > There are many systems for version control but the one you are most likely to encounter and we would recommend
 > learning is [Git](https://git-scm.com/). Unfortunately the topic is too broad to cover in this material but we include
 > the commands to version control your files at the command line using Git.
+>
+> By version controlling your `environment.yml` file along with your projects source code you can recreate your
+> environment and results at any particular point in time and you do not need to version control the directory under
+> `~/miniconda3/envs/` where the environments packages are installed.
 {: .callout}
 
 Let's suppose that you want to use the `environment.yml` file defined above to create a Conda
