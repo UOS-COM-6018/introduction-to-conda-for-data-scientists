@@ -248,7 +248,7 @@ has a nice decision tree that describes the package installation process.
 > > One possibility would be to use the `conda create` command as follows.
 > >
 > > ~~~
-> > $ cd ~/Desktop/introduction-to-conda-for-data-scientists
+> > $ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
 > > $ mkdir my-final-project
 > > $ cd my-final-project/
 > > $ conda create --name my-final-project conda-forge::python=3.10 conda-forge::jupyterlab conda-forge::matplotlib pytorch::pytorch=1.13.1  pytorch::torchvision=0.14.1

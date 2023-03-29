@@ -110,7 +110,7 @@ environment in a sub-directory of some project directory. Here is how you would 
 task.
 
 ~~~
-$ cd ~/Desktop/introduction-to-conda-for-data-scientists
+$ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
 $ mkdir project-dir
 $ cd project-dir
 ~~~
