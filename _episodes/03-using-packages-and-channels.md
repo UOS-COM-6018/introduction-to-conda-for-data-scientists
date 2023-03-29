@@ -29,7 +29,8 @@ channels.
 
 > ## The `conda-forge` channel
 >
-> In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel called that also has
+> In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel that also has
+
 > a special status. The [Conda-Forge](https://github.com/conda-forge) project "_is a community led collection of
 > recipes, build infrastructure and distributions for the conda package manager._"
 >
