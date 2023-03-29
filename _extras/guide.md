@@ -56,7 +56,7 @@ virtual machines, and *vice versa*.
 
 # Alternative syntax for installing packages from specific channels
 There exists an alternative syntax for installing conda packages from specific channels that
-more explicitly links the channel being used to install a particular package.
+more explicitly links the channel used to install a particular package from.
 ~~~
 $ conda install conda-forge::tensorflow --name computer-vision-project
 ~~~
