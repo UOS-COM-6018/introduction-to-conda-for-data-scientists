@@ -11,29 +11,26 @@ objectives:
 keypoints:
 - "A package is a compressed archive file containing system-level libraries, Python or other modules, executable programs and other components, and associated metadata."
 - "A Conda channel is a URL to a directory containing a Conda package(s)."
-- "Understand how to use Conda and Pip together effectively."
+- "Conda and Pip can be used together effectively."
 ---
 
 ## What are Conda channels?
 
-Again from the [Conda documentation](https://conda.io/en/latest/), conda packages are downloaded from
+Conda packages are downloaded from
 remote channels, which are URLs to directories containing conda packages. The `conda` command
-searches a default set of channels, and packages are automatically downloaded and updated from the
-[Anaconda Cloud channels](https://repo.anaconda.com/pkgs/).
+searches a standard set of channels, referred to as `defaults`. The `defaults` channels include:
 
 *   `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in
-    conda's defaults channel as the top priority channel.
+    `defaults` as the top priority channel.
 *   `r`: Microsoft R Open conda packages and [Anaconda, Inc.'s R conda packages](https://anaconda.org/r/repo).
-    This channel is included in conda's defaults channel. When creating new environments, MRO is
-    now chosen as the default R implementation.
 
-Collectively, the Anaconda managed channels are referred to as the `defaults` channel because,
-unless otherwise specified, packages installed using `conda` will be downloaded from these
+Unless otherwise specified, packages installed using `conda` will be downloaded from the `defaults`
 channels.
 
 > ## The `conda-forge` channel
 >
-> In addition to the `default` channels that are managed by Anaconda Inc., there is another channel called that also has
+> In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel that also has
+
 > a special status. The [Conda-Forge](https://github.com/conda-forge) project "_is a community led collection of
 > recipes, build infrastructure and distributions for the conda package manager._"
 >
@@ -46,59 +43,11 @@ channels.
 > (from `defaults`).
 {: .callout}
 
-## How do I install a package from a specific channel?
-
-You can install a package from a specific channel into the currently activate environment by
-passing the `--channel` option to the `conda install` command as follows.
-
-~~~
-$ conda activate machine-learning-env
-$ conda install scipy=1.10.0 --channel conda-forge
-~~~
-{: .language-bash}
-
-
-You can also install a package from a specific channel into a named environment (using `--name`). For example, the
-following command installs the `scipy` package from the `conda-forge` channel into the environment
-called `machine-learning-env` which we created earlier.
-
-~~~
-$ conda install scipy=1.10.0 --channel conda-forge --name machine-learning-env
-~~~
-{: .language-bash}
-
-The following command would install `tensorflow` package from the `conda-forge` channel into the environment called
-`machine-learning-env`.
-
-~~~
-$ conda install tensorflow=2.11.0 --channel conda-forge --name machine-learning-env
-~~~
-{: .language-bash}
-
-> ## Channel priority
->
-> You may specify multiple channels for installing packages by passing the `--channel` argument
-> multiple times.
->
-> ~~~
-> $ conda install scipy=1.10.0 --channel conda-forge --channel bioconda
-> ~~~
-> {: .language-bash}
->
-> Channel priority decreases from left to right - the first argument has higher priority than the
-> second. For reference, [bioconda](https://bioconda.github.io/) is a channel for the conda package manager specializing
-> in bioinformatics software. For those interested in learning more about the Bioconda project, checkout the project's
-> [GitHub](https://bioconda.github.io/) page.
->
-> Please note that in our example, adding `bioconda` channel is irrelevant because `scipy` is no longer available on
-> `bioconda` channel.
-{: .callout}
-
-## My package isn't available on the `defaults` channel! What should I do?
+## My package isn't available in the `defaults` channels! What should I do?
 
 You may find that packages (or often more recent versions of packages!) that you need to
-install for your project are not available on the `defaults` channel.  In this case you should try the
-following.
+install for your project are not available on the `defaults` channels.  In this case you could try the
+following channels.
 
 1.  `conda-forge`: the `conda-forge` channel contains a large number of community curated Conda
     packages. Typically the most recent versions of packages that are generally available via the
@@ -106,9 +55,6 @@ following.
 2. `bioconda`: the `bioconda` channel also contains a large number of Bioinformatics curated conda packages.
     `bioconda` channel is meant to be used with `conda-forge`, you should not worried about using the two channels
     when installing your prefered packages.
-3.  `pip`: if a package is not otherwise available via `conda-forge` (or some
-    domain-specific channel like `bioconda`) a package can be installed into a conda
-    environment from PyPI using `pip`. It's fine to just use `pip` for installing most packages.
 
 For example, [Kaggle](https://www.kaggle.com/) publishes a Python 3 API that can be used to interact with Kaggle
 datasets, kernels and competition submissions. You can search for the package on the `defaults` channels but you will
@@ -141,9 +87,9 @@ and use the search bar at the top of the page.
 ~~~
 {: .language-bash}
 
-The [official installation instructions](https://github.com/Kaggle/kaggle-api) suggest downloading
-the `kaggle` package using `pip`. But since we are using `conda`, let's check whether the
-package exists on at least `conda-forge` channel before proceeding to use `pip`.
+Let's check whether the package exists on at least `conda-forge` channel. 
+Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api) 
+suggest a different way to install.
 
 ~~~
 $ conda search --channel conda-forge kaggle
@@ -177,42 +123,36 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 ~~~
 {: .language-bash}
 
-## What actually happens when I install packages?
-
-During the installation process, files are extracted into the specified environment (defaulting to
-the current environment if none is specified). Installing the files of a conda package into an
-environment can be thought of as changing the directory to an environment, and then downloading
-and extracting the package and its dependencies.
-
-For example, when you `conda install` a package that exists in a channel and has no dependencies,
-conda does the following.
-
-1. looks at your configured channels (in priority)
-2. reaches out to the repodata associated with your channels/platform
-3. parses repodata to search for the package
-4. once the package is found, conda pulls it down and installs
-
-The [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/installing-with-conda.html)
-has a nice decision tree that describes the package installation process.
-
-<p align="center">
-    <img alt="Installing with Conda" src="../fig/installing-with-conda.png" width="250">
-</p>
+> ## Channel priority
+>
+> You may specify multiple channels for installing packages by passing the `--channel` argument
+> multiple times.
+>
+> ~~~
+> $ conda install scipy=1.10.0 --channel conda-forge --channel bioconda
+> ~~~
+> {: .language-bash}
+>
+> Channel priority decreases from left to right - the first argument has higher priority than the
+> second. For reference, [bioconda](https://bioconda.github.io/) is a channel for the conda package manager specializing
+> in bioinformatics software. For those interested in learning more about the Bioconda project, checkout the project's
+> [GitHub](https://bioconda.github.io/) page.
+>
+> Please note that in our example, adding `bioconda` channel is irrelevant because `scipy` is no longer available on
+> `bioconda` channel.
+{: .callout}
 
 > ## Specifying channels when installing packages
 >
-> Like many projects, [`PyTorch`](https://pytorch.org/) has its own
-> [channel](https://anaconda.org/pytorch) on Anaconda Cloud. This channel has several interesting
-> packages, in particular `pytorch` (PyTorch core) and `torchvision` (datasets, transforms, and
-> models specific to computer vision).
+> `polars` is an alternative to `pandas` written in the Rust programming language, so it runs faster.
 >
-> Create a new directory called `computer-vision-project` and then create a Python 3.10 environment called
-> `computer-vision-project` with the two packages listed above. Also include the most recent versions of `jupyterlab`
+> Create a Python 3.10 environment called
+> `fast-analysis-project` with the `polars` package. Also include the most recent versions of `jupyterlab`
 > (so you have a nice UI) and `matplotlib` (so you can make plots) in your environment .
 >
 > > ## Solution
 > >
-> > In order to create a new environment you use the `conda create` command as follows. After making and activating the
+> > In order to create a new environment we use the `conda create` command. After making and activating the
 > > environment we check what versions of `polars` are available so we can install explicit version of these. Finally we
 > > install the version of `polars` we wish to use along with the most recent versions of `jupyterlab` and `matplotlib`
 > > (since we do not explicitly state the versions of these).
@@ -227,7 +167,7 @@ has a nice decision tree that describes the package installation process.
 > > ~~~
 > > {: .language-bash}
 > >
-> > Hint: For the lazy typers: the `--channel` argument can also be shortened to `-c`, for more
+> > Hint: the `--channel` argument can also be shortened to `-c`, for more
 > > abbreviations, see also the
 > > [Conda command reference](https://docs.conda.io/projects/conda/en/latest/commands.html) .
 > {: .solution}
@@ -264,10 +204,10 @@ has a nice decision tree that describes the package installation process.
 > {: .solution}
 {: .challenge}
 
-## A Python package isn't available on any Conda channel! What should I do?
+## Using `pip` and Conda
 
-If a Python package that you need isn't available on any Conda channel, then you can use the default Python package
-manager [`pip`](https://pip.pypa.io/en/stable/) to install it  from [Python Package Index
+You can use the default Python package
+manager [`pip`](https://pip.pypa.io/en/stable/) to install packages from [Python Package Index
 (PyPI)](https://pypi.org/). However, there are a few [potential
 issues](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) that you should be aware of when using `pip` to
 install Python packages when using Conda.
@@ -311,8 +251,7 @@ $ which pip
 > Conda functionality when mixing packages installed with Conda and Pip.
 {: .callout}
 
-If you find yourself needing to install a Python package that is only available via PyPI, then you should use the
-
+If you find yourself needing to install a Python package that is only available via PyPI, then you should use the copy of
 `pip`, which is installed automatically when you create a Conda environment with Python, to install the desired package
 from PyPI. Using the `pip` installed in your Conda environment to install Python packages not available via Conda
 channels will help you avoid difficult to debug issues that frequently arise when using Python packages installed via a
@@ -320,9 +259,9 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 
 > ## Conda (+Pip)
 >
-> Pitfalls of using Conda and `pip` together can be avoided by adopting the following practices.
->
-> * Always be sure your desired environment is *active* before installing anything using `pip`.
+> Pitfalls of using Conda and `pip` together can be avoided by 
+> always ensuring your **desired environment is active** before installing anything using `pip`. This can be done by looking at the output of `conda info`.
+
 {: .callout}
 
 > ## Installing packages into Conda environments using `pip`

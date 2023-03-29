@@ -54,4 +54,14 @@ physical computer can host multiple virtual machines and each can be configured 
 including having different operating systems - a physical computer running Windows can host Linux
 virtual machines, and *vice versa*.
 
+# Alternative syntax for installing packages from specific channels
+There exists an alternative syntax for installing conda packages from specific channels that
+more explicitly links the channel used to install a particular package from.
+~~~
+$ conda install conda-forge::tensorflow --name computer-vision-project
+~~~
+{: .language-bash}
+Repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, and `matplotlib` from the
+`conda-forge` channel and `pytorch` and `torchvision` from the `pytorch` channel.
+
 {% include links.md %}
