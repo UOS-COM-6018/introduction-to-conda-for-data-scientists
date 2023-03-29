@@ -1,5 +1,5 @@
 ---
-title: "Using Conda Channels and PyPI (`pip`)"
+title: "Using Conda Channels and PyPI (pip)"
 teaching: 20
 exercises: 10
 questions:
@@ -212,15 +212,18 @@ has a nice decision tree that describes the package installation process.
 >
 > > ## Solution
 > >
-> > In order to create a new environment you use the `conda create` command as follows. After making the directory we
-> check what versions of `pytorch` and `torchvision` are available so you can install explicit versions of these. This
-> is done using the `base` Conda environment. Then you can create a new Conda environment with the versions of Python,
-> and packages required
+> > In order to create a new environment you use the `conda create` command as follows. After making and activating the
+> > environment we check what versions of `polars` are available so we can install explicit version of these. Finally we
+> > install the version of `polars` we wish to use along with the most recent versions of `jupyterlab` and `matplotlib`
+> > (since we do not explicitly state the versions of these).
 > >
 > > ~~~
 > > $ mkdir my-computer-vision-project
 > > $ cd my-computer-vision-project/
-> > $ conda create --name my-computer-vision-project --channel pytorch python=3.10 jupyterlab pytorch=1.13.1 torchvision=0.14.1 matplotlib
+> > $ conda create --name my-computer-vision-project python=3.10
+> > $ conda activate my-computer-vision-project
+> > $ conda search --channel conda-forge polars
+> > $ conda install --channel conda-forge jupyterlab polars matplotlib
 > > ~~~
 > > {: .language-bash}
 > >
@@ -232,26 +235,30 @@ has a nice decision tree that describes the package installation process.
 
 > ## Alternative syntax for installing packages from specific channels
 >
-> There exists an alternative syntax for installing conda packages from specific channels that
-> more explicitly links the channel being used to install a particular package.
+> There exists an alternative syntax for installing conda packages from specific channels that more explicitly links the
+> channel being used to install a particular package under the current active environment.
 >
 > ~~~
-> $ conda install conda-forge::tensorflow --name computer-vision-project
+> $ conda install conda-forge::polars
 > ~~~
 > {: .language-bash}
 >
 > Repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, and `matplotlib` from the
-> `conda-forge` channel and `pytorch` and `torchvision` from the `pytorch` channel.
+> `default` channel and `polars` the `conda-forge` channel in an environment called `my-final-project`.
 >
 > > ## Solution
 > >
-> > One possibility would be to use the `conda create` command as follows.
+> > One possibility of doing this is to create the environment `my-final-project` with an explicit version of Python,
+> > `activate` it, then install the packages `jupyterlab` and `matplotlib` without specifying channel, but prefixing
+> > `polars` with the `conda-forge::` channel.
 > >
 > > ~~~
 > > $ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
 > > $ mkdir my-final-project
 > > $ cd my-final-project/
-> > $ conda create --name my-final-project conda-forge::python=3.10 conda-forge::jupyterlab conda-forge::matplotlib pytorch::pytorch=1.13.1  pytorch::torchvision=0.14.1
+> > $ conda create --name my-final-project python=3.10
+> > $ conda activate my-final-project
+> > $ conda install jupyterlab matplotlib conda-forge::polars
 > > ~~~
 > > {: .language-bash}
 > {: .solution}

@@ -246,19 +246,19 @@ $ git commit -m "Adding machine-learning-history-env.yml based on environment hi
 > `environment.yml` file:
 >
 > ~~~
-> name: pytorch-env
+> name: polars-env
 >
 > channels:
->   - pytorch
+>   - conda-forge
 >   - defaults
 >
 > dependencies:
->   - pytorch=1.13
+>   - polars=0.16
 > ~~~
 > {: .language-yaml}
 >
-> When the above file is used to create an environment, conda would first look in the `pytorch` channel for
-> all packages mentioned under `dependencies`. If they exist in the `pytorch` channel, conda would install
+> When the above file is used to create an environment, conda would first look in the `conda-forge` channel for
+> all packages mentioned under `dependencies`. If they exist in the `conda-forge` channel, conda would install
 > them from there, and not look for them in `defaults` at all.
 {: .callout}
 
