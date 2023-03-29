@@ -223,7 +223,8 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 > ## Conda (+Pip)
 >
 > Pitfalls of using Conda and `pip` together can be avoided by 
-> always ensuring your **desired environment is active** before installing anything using `pip`.
+> always ensuring your **desired environment is active** before installing anything using `pip`. This can be done by looking at the output of `conda info`.
+
 {: .callout}
 
 > ## Installing packages into Conda environments using `pip`
