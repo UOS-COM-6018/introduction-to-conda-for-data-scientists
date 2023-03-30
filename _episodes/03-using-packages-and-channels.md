@@ -30,7 +30,7 @@ channels.
 > ## The `conda-forge` channel
 >
 > In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel that also has
-
+>
 > a special status. The [Conda-Forge](https://github.com/conda-forge) project "_is a community led collection of
 > recipes, build infrastructure and distributions for the conda package manager._"
 >
@@ -87,8 +87,8 @@ and use the search bar at the top of the page.
 ~~~
 {: .language-bash}
 
-Let's check whether the package exists on at least `conda-forge` channel. 
-Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api) 
+Let's check whether the package exists on at least `conda-forge` channel.
+Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api)
 suggest a different way to install.
 
 ~~~
@@ -119,7 +119,9 @@ Once we know that the `kaggle` package is available via `conda-forge` we can go 
 it.
 
 ~~~
-$ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
+$ conda create --name machine-learning-env python=3.10
+$ conda activate machine-learning-env
+$ conda install --channel conda-forge kaggle=1.5.12
 ~~~
 {: .language-bash}
 
@@ -192,15 +194,6 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 > > `activate` it, then install the packages `jupyterlab` and `matplotlib` without specifying channel, but prefixing
 > > `polars` with the `conda-forge::` channel.
 > >
-> > ~~~
-> > $ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
-> > $ mkdir my-final-project
-> > $ cd my-final-project/
-> > $ conda create --name my-final-project python=3.10
-> > $ conda activate my-final-project
-> > $ conda install jupyterlab matplotlib conda-forge::polars
-> > ~~~
-> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -259,7 +252,7 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 
 > ## Conda (+Pip)
 >
-> Pitfalls of using Conda and `pip` together can be avoided by 
+> Pitfalls of using Conda and `pip` together can be avoided by
 > always ensuring your **desired environment is active** before installing anything using `pip`. This can be done by looking at the output of `conda info`.
 
 {: .callout}

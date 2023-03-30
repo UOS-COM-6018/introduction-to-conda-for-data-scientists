@@ -5,12 +5,10 @@ exercises: 15
 questions:
 - "Why should I share my Conda environment with others?"
 - "How do I share my Conda environment with others?"
-- "How do I create a custom kernel for my Conda environments inside JupyterLab?"
 objectives:
 - "Create an environment from a YAML file that can be read by Windows, Mac OS, or Linux."
 - "Create an environment based on exact package versions."
 - "Create a custom kernel for a Conda environment for use inside JupyterLab and Jupyter notebooks."
-keypoints:
 - "Sharing Conda environments with other researchers facilitates the reproducibility of your research."
 - "Create an`environment.yml` file that describes your project's software environment."
 ---
@@ -177,8 +175,10 @@ across operating systems. The reason for this is, that it may include operating 
 packages which cannot be used by other operating systems.
 
 **If you need an environment file that can produce environments that are reproducible across Mac OS, Windows,
-and Linux, then you are better off just including those packages into the environment file that you have
-specifically installed.**
+and Linux, then you are better off just including only those packages that you have specifically installed.**
+
+This is achieved using the `--from-history` flag/option which means _only_ those packages explicitly installed with
+`conda install` commands, and **not** the dependencies that were pulled in when doing so will be exported.
 
 ~~~
 $ conda env export --name machine-learning-env --from-history --file machine-learning-history-env.yml
@@ -392,39 +392,5 @@ dependencies:
 {: .callout}
 
 
-> An alternative way of installing dependencies via `pip` in your environment files is to store all the
-> packages that you wish to install via `pip` in a `requirements.txt` file and then add the following to
-> your `environment.yml file`
->
-> ~~~
-> name: example
->
-> dependencies:
->   - jupyterlab=1.0
->   - matplotlib=3.1
->   - pandas=0.24
->   - scikit-learn=0.21
->   - pip
->   - pip:
->     - -r file:requirements.txt
-> ~~~
->
-> Conda will install all dependencies, including the most recent version of `pip` and then in the background runs
-> `python -m pip install -r requirements.txt` to install the packages listed in the `requirements.txt` file.
->
-> A `requirements.txt` file has a similar structure although it does not use YAML markup, instead it simply lists the
-> packages by name. If a specific version is required then as above it is specified with `==`. Remember you should not
-> include `pip` in the `requirements.txt` because this should be installed by and managed by Conda in your
-> environment. An example is shown below
->
-> ```
-> kaggle
-> yellowbrick==1.5
-> ```
-
-> If you use a `requirements.txt` file then you should add this to your Git repository so it too is maintained under
-> version control.
->
-{: .callout}
 
 {% include links.md %}

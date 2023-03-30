@@ -100,7 +100,7 @@ To create a new environment for Python development using `conda` you can use the
 command.
 
 ~~~
-$ conda create --name python3-env python
+$ conda create --name basic-scipy-env python=3.10
 ~~~
 {: .language-bash}
 
@@ -111,7 +111,7 @@ the purpose of the environment. While naming things can be difficult, `$PROJECT_
 good convention to follow. Sometimes also the specific version of a package why you had to create a new environment is a
 good name.
 
-The command above will create a new Conda environment called `python3-env` and install a recent
+The command above will create a new Conda environment called `basic-scipy-env` and install a recent
 version of Python (3.10). If you wish, you can specify a specific version of Python for `conda` to
 install when creating the environment by adding a version number e.g. to `python=3.8`.
 
@@ -159,10 +159,13 @@ $ conda create --name python38-env python=3.8
 >
 > > ## Solution
 > >
-> > In order to create a new environment you use the `conda create` command as follows.
+> > In order to create a new environment you use the `conda create` command, activate the environment then install the
+> > packages as follows.
 > >
 > > ~~~
-> > $ conda create --name machine-learning-env ipython matplotlib pandas python scikit-learn numba
+> > $ conda create --name machine-learning-env python=3.10
+> > $ conda activate machine-learning-env
+> > $ conda install ipython matplotlib pandas python scikit-learn numba
 > > ~~~
 > > {: .language-bash}
 > >
@@ -172,8 +175,9 @@ $ conda create --name python38-env python=3.8
 > > search <PKGNAME>`
 > >
 > > ~~~
-> > $ conda create --name machine-learning-env ipython=8.8.0 matplotlib=3.6.2 pandas=1.5.2 python=3.10
-> > scikit-learn=1.2.0 numba=0.56.4
+> > $ conda create --name machine-learning-env python=3.10
+> > $ conda activate machine-learning-env
+> > $ conda install ipython=8.8.0 matplotlib=3.6.2 pandas=1.5.2 python=3.10 scikit-learn=1.2.0 numba=0.56.4
 > > ~~~
 > > {: .language-bash}
 > >
@@ -183,7 +187,7 @@ $ conda create --name python38-env python=3.8
 {: .challenge}
 
 > ## What actually happens when I install packages?
-> 
+>
 > During the installation process, files are extracted into the specified environment (defaulting to
 > the current environment if none is specified). Installing the files of a Conda package into an
 > environment can be thought of as changing the directory to an environment, and then downloading
@@ -387,7 +391,6 @@ $ conda install scipy=1.9.3 numpy=1.9.3
 > base                  *  /home/neil/miniconda3
 > basic-scipy-env          /home/neil/miniconda3/envs/basic-scipy-env
 > machine-learning-env     /home/neil/miniconda3/envs/machine-learning-env
-> python3-env              /home/neil/miniconda3/envs/python3-env
 > python310-env            /home/neil/miniconda3/envs/python310-env
 > scikit-learn-env         /home/neil/miniconda3/envs/scikit-learn-env
 > scikit-learn-kaggle-env  /home/neil/miniconda3/envs/scikit-learn-kaggle-env
