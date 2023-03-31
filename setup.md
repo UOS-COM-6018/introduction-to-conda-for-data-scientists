@@ -76,7 +76,7 @@ For convenience here are links to the 64-bit Miniconda installers.
 {: .callout}
 
 > ## Verify downloaded executables
-> 
+>
 > You should verify the files that you download by comparing their SHA-256
 > hash to the expected value. The Conda website provides instructions for
 > [cryptographic hash verification](https://conda.io/projects/conda/en/stable/user-guide/install/download.html#cryptographic-hash-verification) on all platforms, where
@@ -194,6 +194,8 @@ $ conda --version
 conda 23.1.0
 ~~~
 {: .language-bash}
+
+Greater detail about the configuration of a Conda environment are provided by `conda --info`.
 
 ## Make sure you have the most recent version
 

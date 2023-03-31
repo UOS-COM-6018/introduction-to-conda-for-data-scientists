@@ -5,12 +5,10 @@ exercises: 15
 questions:
 - "Why should I share my Conda environment with others?"
 - "How do I share my Conda environment with others?"
-- "How do I create a custom kernel for my Conda environments inside JupyterLab?"
 objectives:
 - "Create an environment from a YAML file that can be read by Windows, Mac OS, or Linux."
 - "Create an environment based on exact package versions."
 - "Create a custom kernel for a Conda environment for use inside JupyterLab and Jupyter notebooks."
-keypoints:
 - "Sharing Conda environments with other researchers facilitates the reproducibility of your research."
 - "Create an`environment.yml` file that describes your project's software environment."
 ---
@@ -89,20 +87,18 @@ Conda environment across updates.
 
 > ## *Always* version control your `environment.yml` files!
 >
-> While you should *never* version control the contents of your `~/miniconda/env/` environment sub-directory,
-> you should *always* version control your `environment.yml` files. Version controlling your
-> `environment.yml` files together with your project's source code means that you always know
-> which versions of which packages were used to generate your results at any particular point in
-> time.
->
 > Version control is a system of keeping track of changes that are made to files, in this case the `environment.yml`
-> file. It's really useful to do so if for example you make a change, for example updating a specific version of a
-> package and you find it breaks something in your environment or when running your code as you then have a record of
-> what it previously was and can revert the changes.
+> file. It's really useful to do so if for example you make and update a specific version of a package and you find it
+> breaks something in your environment or when running your code as you then have a record of what it previously was and
+> can revert the changes.
 >
 > There are many systems for version control but the one you are most likely to encounter and we would recommend
 > learning is [Git](https://git-scm.com/). Unfortunately the topic is too broad to cover in this material but we include
 > the commands to version control your files at the command line using Git.
+>
+> By version controlling your `environment.yml` file along with your projects source code you can recreate your
+> environment and results at any particular point in time and you do not need to version control the directory under
+> `~/miniconda3/envs/` where the environments packages are installed.
 {: .callout}
 
 Let's suppose that you want to use the `environment.yml` file defined above to create a Conda
@@ -110,7 +106,7 @@ environment in a sub-directory of some project directory. Here is how you would 
 task.
 
 ~~~
-$ cd ~/Desktop/introduction-to-conda-for-data-scientists
+$ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
 $ mkdir project-dir
 $ cd project-dir
 ~~~
@@ -156,7 +152,7 @@ we see that these five packages result in an environment with roughly 80 depende
 To export this list into an environment.yml file, you can use `--file` option to directly save the
 resulting YAML environment into a file. If the target for `--file` exists it will be over-written so make sure your
 filename is unique. So that we do not over-write `environment.yaml` we save the output to `machine-learning-env.yaml`
-instead and add it to
+instead and add it to the Git repository.
 
 ~~~
 $ conda env export --name machine-learning-env --file machine-learning-env.yml
@@ -166,14 +162,23 @@ $ git commit -m "Adding machine-learning-env.yml config file."
 ~~~
 {: .language-bash}
 
+> It is important to note that the exported file includes the `prefix:` entry which records the location the environment
+> is installed on your system. If you are to share this file with colleagues you should remove this line before doing so
+> as it is highly unlikely their virtual environments will be in the same location. You should also ideally remove the
+> line _before_ committing to Git.
+>
+{: .callout}
+
 
 This exported environment file may not *consistently* produce environments that are reproducible
 across operating systems. The reason for this is, that it may include operating system specific low-level
 packages which cannot be used by other operating systems.
 
 **If you need an environment file that can produce environments that are reproducible across Mac OS, Windows,
-and Linux, then you are better off just including those packages into the environment file that you have
-specifically installed.**
+and Linux, then you are better off just including only those packages that you have specifically installed.**
+
+This is achieved using the `--from-history` flag/option which means _only_ those packages explicitly installed with
+`conda install` commands, and **not** the dependencies that were pulled in when doing so will be exported.
 
 ~~~
 $ conda env export --name machine-learning-env --from-history --file machine-learning-history-env.yml
@@ -248,19 +253,19 @@ $ git commit -m "Adding machine-learning-history-env.yml based on environment hi
 > `environment.yml` file:
 >
 > ~~~
-> name: pytorch-env
+> name: polars-env
 >
 > channels:
->   - pytorch
+>   - conda-forge
 >   - defaults
 >
 > dependencies:
->   - pytorch=1.13
+>   - polars=0.16
 > ~~~
 > {: .language-yaml}
 >
-> When the above file is used to create an environment, conda would first look in the `pytorch` channel for
-> all packages mentioned under `dependencies`. If they exist in the `pytorch` channel, conda would install
+> When the above file is used to create an environment, conda would first look in the `conda-forge` channel for
+> all packages mentioned under `dependencies`. If they exist in the `conda-forge` channel, conda would install
 > them from there, and not look for them in `defaults` at all.
 {: .callout}
 
@@ -349,63 +354,43 @@ The `--prune` option tells Conda to remove any dependencies that are no longer r
 > {: .solution}
 {: .challenge}
 
-> ## Installing via `pip` in `environment.yml` files
+## Installing via `pip` in `environment.yml` files
+
+Since you write `environment.yml` files for all of your projects, you might be wondering how to specify that packages
+should be installed using `pip` in the `environment.yml` file.  Here is an example `environment.yml` file that uses
+`pip` to install the `kaggle` and `yellowbrick` packages.
+
+~~~
+name: example
+
+dependencies:
+  - jupyterlab=1.0
+  - matplotlib=3.1
+  - pandas=0.24
+  - scikit-learn=0.21
+  - pip=22.3
+  - pip:
+    - kaggle
+    - yellowbrick==1.5
+~~~
+
+> Note two things...
 >
-> Since you write `environment.yml` files for all of your projects, you might be wondering how
-> to specify that packages should be installed using `pip` in the `environment.yml` file.  Here
-> is an example `environment.yml` file that uses `pip` to install the `kaggle` and `yellowbrick`
-> packages.
+> 1. `pip` is installed as a dependency under conda **first** (under the `dependencies` section) with an explicit
+> version (not essential).
+> 2. Following this there is then an entry for `- pip:` and under this is another list (indented further) where double
+> '==' instead of '=' for the explicit version that `pip` will install.
 >
-> ~~~
-> name: example
->
-> dependencies:
->  - jupyterlab=1.0
->  - matplotlib=3.1
->  - pandas=0.24
->  - scikit-learn=0.21
->  - pip=22.3
->  - pip:
->    - kaggle==1.5
->    - yellowbrick==1.5
-> ~~~
->
-> Note the double '==' instead of '=' for the `pip` installation and that you should include `pip` itself
-> as a Conda dependency and then a subsection denoting those packages to be installed via `pip`. In case
-> you are wondering, the [Yellowbrick](https://www.scikit-yb.org/en/latest/) package is a suite of
-> visual diagnostic tools called “Visualizers” that extend the
-> [Scikit-Learn](https://scikit-learn.org/stable/) API to allow human steering of the model selection
-> process. Recent version of Yellowbrick can also be installed using `conda` from the `conda-forge` channel.
+> In case you are wondering, the [Yellowbrick](https://www.scikit-yb.org/en/latest/) package is a suite of visual
+> diagnostic tools called “Visualizers” that extend the [Scikit-Learn](https://scikit-learn.org/stable/) API to allow
+> human steering of the model selection process. Recent version of Yellowbrick can also be installed using `conda` from
+> the `conda-forge` channel.
 >
 > ~~~
 > $ conda install --channel conda-forge yellowbrick=1.2 --name project-env
 > ~~~
->
-> An alternative way of installing dependencies via `pip` in your environment files is to store all the
-> packages that you wish to install via `pip` in a `requirements.txt` file and then add the following to
-> your `environment.yml file`.
->
-> ```
-> ...
->   - pip
->   - pip:
->     - -r file:requirements.txt
-> ```
->
-> Conda will then install your `pip` dependencies using `python -m pip install -r requirements.txt`
-> (after creating the Conda environment and installing all Conda installable dependencies).
->
-> A `requirements.txt` file has a similar structure although it does not use YAML markup, instead it simply lists the
-> packages by name. If a specific version is required then as above it is specified with `==`. Remember you should not
-> include `pip` in the `requirements.txt` because this should be installed by and managed by Conda in your environment.
->
-> If you use a `requirements.txt` file then you should add this to your Git repository so it too is maintained under
-> version control.
->
-> ```
-> kaggle
-> yellowbrick==1.5
-> ```
 {: .callout}
+
+
 
 {% include links.md %}

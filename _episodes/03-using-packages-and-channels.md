@@ -1,5 +1,5 @@
 ---
-title: "Using Conda Channels and PyPI (`pip`)"
+title: "Using Conda Channels and PyPI (pip)"
 teaching: 20
 exercises: 10
 questions:
@@ -30,7 +30,7 @@ channels.
 > ## The `conda-forge` channel
 >
 > In addition to the `defaults` channels that are managed by Anaconda Inc., there is another channel that also has
-
+>
 > a special status. The [Conda-Forge](https://github.com/conda-forge) project "_is a community led collection of
 > recipes, build infrastructure and distributions for the conda package manager._"
 >
@@ -87,8 +87,8 @@ and use the search bar at the top of the page.
 ~~~
 {: .language-bash}
 
-Let's check whether the package exists on at least `conda-forge` channel. 
-Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api) 
+Let's check whether the package exists on at least `conda-forge` channel.
+Note that the [official installation instructions](https://github.com/Kaggle/kaggle-api)
 suggest a different way to install.
 
 ~~~
@@ -119,7 +119,9 @@ Once we know that the `kaggle` package is available via `conda-forge` we can go 
 it.
 
 ~~~
-$ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
+$ conda create --name machine-learning-env python=3.10
+$ conda activate machine-learning-env
+$ conda install --channel conda-forge kaggle=1.5.12
 ~~~
 {: .language-bash}
 
@@ -152,18 +154,46 @@ $ conda install --channel conda-forge kaggle=1.5.12  --name machine-learning-env
 >
 > > ## Solution
 > >
-> > Optionally, check what versions of `polars` are available so you can install a specific version. 
-> > Then create a new Conda environment (`conda create`) with the versions of Python,
-> > and packages required.
+> > In order to create a new environment we use the `conda create` command. After making and activating the
+> > environment we check what versions of `polars` are available so we can install explicit version of these. Finally we
+> > install the version of `polars` we wish to use along with the most recent versions of `jupyterlab` and `matplotlib`
+> > (since we do not explicitly state the versions of these).
 > >
 > > ~~~
-> > $ conda create --name fast-analysis-project --channel conda-forge python=3.10 jupyterlab polars matplotlib
+> > $ mkdir my-computer-vision-project
+> > $ cd my-computer-vision-project/
+> > $ conda create --name my-computer-vision-project python=3.10
+> > $ conda activate my-computer-vision-project
+> > $ conda search --channel conda-forge polars
+> > $ conda install --channel conda-forge jupyterlab polars matplotlib
 > > ~~~
 > > {: .language-bash}
 > >
 > > Hint: the `--channel` argument can also be shortened to `-c`, for more
 > > abbreviations, see also the
 > > [Conda command reference](https://docs.conda.io/projects/conda/en/latest/commands.html) .
+> {: .solution}
+{: .challenge}
+
+> ## Alternative syntax for installing packages from specific channels
+>
+> There exists an alternative syntax for installing conda packages from specific channels that more explicitly links the
+> channel being used to install a particular package under the current active environment.
+>
+> ~~~
+> $ conda install conda-forge::polars
+> ~~~
+> {: .language-bash}
+>
+> Repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, and `matplotlib` from the
+> `default` channel and `polars` the `conda-forge` channel in an environment called `my-final-project`.
+>
+> > ## Solution
+> >
+> > One possibility of doing this is to create the environment `my-final-project` with an explicit version of Python,
+> > `activate` it, then install the packages `jupyterlab` and `matplotlib` without specifying channel, but prefixing
+> > `polars` with the `conda-forge::` channel.
+> >
 > {: .solution}
 {: .challenge}
 
@@ -222,7 +252,7 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 
 > ## Conda (+Pip)
 >
-> Pitfalls of using Conda and `pip` together can be avoided by 
+> Pitfalls of using Conda and `pip` together can be avoided by
 > always ensuring your **desired environment is active** before installing anything using `pip`. This can be done by looking at the output of `conda info`.
 
 {: .callout}
