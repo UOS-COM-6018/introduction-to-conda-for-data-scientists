@@ -49,7 +49,7 @@ The following fields should be entered into each field on the **Details** page (
 
 
 > This is an introductory course, teaching the use of Conda Virtual Environments required to manage reproducible
-> research software and analysis code.
+> research.
 
 ### Description
 
@@ -62,10 +62,10 @@ The following fields should be entered into each field on the **Details** page (
 > **Prerequisite skills***: Some programming experience.
 >
 > ### Learning Objectives
-> - Version controlling your own project through Git & GitHub.
-> - Basic collaboration through forks on GitHub.
-> - Advanced team collaboration through branches on GitHub.
-> - Using the GitKraken GUI for a smooth version control experience.
+> - Understand why you should use a package and environment management system as part of your (data) science workflow.
+> - Create, activate and deactivate environments.
+> - Install and manage packages within environments and understand the concept of "channels".
+> - How to take snapshots of environments to share with researchers across operating systems.
 >
 > This course will be run online.
 >
