@@ -29,7 +29,7 @@ Please don’t hesitate to reach out to me with any questions.
 
 <br>
 
-##### Mr `r params$lead_instructor`
+##### `r params$lead_instructor`
 
 **Research Software Engineer**
 

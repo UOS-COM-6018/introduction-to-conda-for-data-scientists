@@ -22,7 +22,7 @@ To join the session please click the link below:
 
 See you all soon!
 
-Mr `r params$lead_instructor`
+`r params$lead_instructor`
 
 **Research Software Engineer**
 
