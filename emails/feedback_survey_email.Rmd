@@ -28,7 +28,7 @@ Please visit https://rse.shef.ac.uk or subscribe to our mailing list for informa
 
 <br>
 
-##### Dr `r params$lead_instructor`
+##### Mr `r params$lead_instructor`
 
 **Research Software Engineer**
 
