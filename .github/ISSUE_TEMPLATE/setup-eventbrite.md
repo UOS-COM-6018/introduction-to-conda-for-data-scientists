@@ -48,8 +48,8 @@ The following fields should be entered into each field on the **Details** page (
 ### Summary
 
 
-> This is an introductory course, teaching the git and GitHub skills required to manage research code over it's
-> development lifecycle.
+> This is an introductory course, teaching the use of Conda Virtual Environments required to manage reproducible
+> research software and analysis code.
 
 ### Description
 
