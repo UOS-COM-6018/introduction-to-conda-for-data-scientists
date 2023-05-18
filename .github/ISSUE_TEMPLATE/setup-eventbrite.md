@@ -65,7 +65,7 @@ The following fields should be entered into each field on the **Details** page (
 > - Understand why you should use a package and environment management system as part of your (data) science workflow.
 > - Create, activate and deactivate environments.
 > - Install and manage packages within environments and understand the concept of "channels".
-> - How to take snapshots of environments to share with researchers across operating systems.
+> - How to take snapshots of environments to ensure research is reproducible across operating systems.
 >
 > This course will be run online.
 >
