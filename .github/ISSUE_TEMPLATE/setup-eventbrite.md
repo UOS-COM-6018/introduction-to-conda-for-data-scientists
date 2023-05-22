@@ -56,8 +56,8 @@ The following fields should be entered into each field on the **Details** page (
 > How can we effectively work together on the same code?
 > This is an introductory course, teaching the use of Conda virtual environments for effective and reproducible research
 > development lifecycle. These skills are essential for reproducible research.
-> This event is for University of Sheffield researchers and research students only. Please register with an @shef.ac.uk
-> or @sheffield.ac.uk email address to ensure your ticket request is accepted.
+> This event is for University of Sheffield researchers and research students only. Please register with a University of
+> Sheffield email address to ensure your ticket request is accepted.
 >
 > **Prerequisite skills***: Some programming experience.
 >

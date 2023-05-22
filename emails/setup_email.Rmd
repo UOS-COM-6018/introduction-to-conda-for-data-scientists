@@ -28,8 +28,9 @@ live demonstration on one screen and perform the practical exercises on another.
 
 ### SCHEDULE
 
-We’ll **kick off at `r params$event_start_time` on `r format(strptime(params$event_date, format = "%Y-%m-%d"), "%a %b %d %Y")`** and aim to have a 1 hr **lunch break at `r params$lunch_time`** which should last around another 3 hrs.
-There will be some time at the end of the day for questions and discussions.
+We’ll **kick off at `r params$event_start_time` on `r format(strptime(params$event_date, format = "%Y-%m-%d"), "%a %b %d
+%Y")`** and the course should last around 3 hours.
+There will be some time at the end for questions and discussions.
 
 ### ATTENDANCE
 
