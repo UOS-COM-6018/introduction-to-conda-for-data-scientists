@@ -62,10 +62,12 @@ The following fields should be entered into each field on the **Details** page (
 > **Prerequisite skills***: Some programming experience.
 >
 > ### Learning Objectives
-> - Understand why you should use a package and environment management system as part of your (data) science workflow.
-> - Create, activate and deactivate environments.
-> - Install and manage packages within environments and understand the concept of "channels".
-> - How to take snapshots of environments to ensure research is reproducible across operating systems.
+> - Understand what Conda is and why it is useful for managing packages and environments in research workflows.
+> - How to create, activate and delete Conda environments.
+> - How to install and manage packages in Conda environments.
+> - What Conda channels and packages are and how to use them.
+> - How to use pip in Conda environments.
+> - How to share your Conda environment.
 >
 > This course will be run online.
 >
