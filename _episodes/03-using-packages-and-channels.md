@@ -39,8 +39,6 @@ channels.
 >
 > 1. Packages on `conda-forge` may be more up-to-date than those on the `defaults` channel.
 > 2. There are packages on the `conda-forge` channel that aren't available from `defaults`.
-> 3. You may wish to use a dependency such as `openblas` (from `conda-forge`) instead of `mkl`
-> (from `defaults`).
 {: .callout}
 
 ## My package isn't available in the `defaults` channels! What should I do?
