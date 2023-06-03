@@ -1,0 +1,36 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+params:
+    prefilled_survey_link: "https://docs.google.com/forms/d/e/1FAIpQLSd0AS5HLUkMOv2DQFXnX0-4bgFI_OETi2itdSTEwQSLMsnouA/viewform"
+    lead_instructor: "Neil Shephard"
+    event_date: "2023-06-05"
+---
+
+<!--- Send this email 1 day after event --->
+
+
+Thank you for attending our **Conda environments for effective and reproducible research**. We hope you enjoyed it and found it useful!
+
+We are always looking to improve our course in order to meet our participants' needs so your feedback would be very helpful. We would be grateful if you could take a few minutes to complete our short survey.
+
+ <br>
+
+## [Complete Course Survey](`r paste0(params$prefilled_survey_link, params$event_date)`)
+
+Thank you for taking the time to provide feedback!
+
+ <br>
+
+Please visit [rse.shef.ac.uk](https://rse.shef.ac.uk) or subscribe to our mailing list for information on future
+training sessions.
+
+<br>
+
+##### `r params$lead_instructor`
+
+**Research Software Engineer**
+
+University of Sheffield

@@ -1,0 +1,29 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+params:
+    session_joining_link: ""
+    lead_instructor: "Neil Shephard"
+---
+
+
+<!--- Send this email the morning of the event --->
+
+We're looking forward to welcoming you to the RSE Sheffield training session on **Conda environments for effective and
+reproducible research** shortly!
+
+
+To join the session please click the link below:
+
+
+# [**JOIN COURSE ROOM**](`r params$session_joining_link`)
+
+See you all soon!
+
+`r params$lead_instructor`
+
+**Research Software Engineer**
+
+University of Sheffield
