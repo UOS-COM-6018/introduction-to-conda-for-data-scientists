@@ -47,7 +47,7 @@ Let's take a look at a few example `environment.yml` files to give you an idea o
 files.
 
 ~~~
-name: machine-learning-env
+name: machine-learning-39-env
 
 dependencies:
   - ipython
@@ -59,7 +59,7 @@ dependencies:
 ~~~
 {: .language-yaml}
 
-This `environment.yml` file would create an environment called `machine-learning-env` with the
+This `environment.yml` file would create an environment called `machine-learning-39-env` with the
 most current and mutually compatible versions of the listed packages (including all required
 dependencies). The newly created environment would be installed inside the `~/miniconda3/envs/`
 directory, unless we specified a different path using `--prefix`.
@@ -67,7 +67,7 @@ directory, unless we specified a different path using `--prefix`.
 If you prefer you can use explicit versions numbers for all packages:
 
 ~~~
-name: machine-learning-env
+name: machine-learning-39-env
 
 dependencies:
   - ipython=8.8
@@ -110,6 +110,7 @@ $ cd ~/Desktop/conda-environments-for-effective-and-reproducible-research
 $ mkdir project-dir
 $ cd project-dir
 ~~~
+{: .language-bash}
 
 Once your project folder is created, create `environment.yml` using your favourite editor for instance `nano`.
 Finally create a new Conda environment:
@@ -125,17 +126,17 @@ your `project-dir` directory.
 
 ## Automatically generate an `environment.yml`
 
-To export the packages installed into the previously created `machine-learning-env` you can run the
+To export the packages installed into the previously created `machine-learning-39-env` you can run the
 following command:
 
 ~~~
-$ conda env export --name machine-learning-env
+$ conda env export --name machine-learning-39-env
 ~~~
 {: .language-bash}
 
 When you run this command, you will see the resulting YAML formatted representation of your Conda
 environment streamed to the terminal. Recall that we only listed five packages when we
-originally created `machine-learning-env` yet from the output of the `conda env export` command
+originally created `machine-learning-39-env` yet from the output of the `conda env export` command
 we see that these five packages result in an environment with roughly 80 dependencies!
 
 > ## What's in the exported environment.yml file
@@ -149,16 +150,16 @@ we see that these five packages result in an environment with roughly 80 depende
 >
 {: .callout}
 
-To export this list into an environment.yml file, you can use `--file` option to directly save the
+To export this list into an `environment.yml` file, you can use `--file` option to directly save the
 resulting YAML environment into a file. If the target for `--file` exists it will be over-written so make sure your
-filename is unique. So that we do not over-write `environment.yaml` we save the output to `machine-learning-env.yaml`
+filename is unique. So that we do not over-write `environment.yaml` we save the output to `machine-learning-39-env.yaml`
 instead and add it to the Git repository.
 
 ~~~
-$ conda env export --name machine-learning-env --file machine-learning-env.yml
+$ conda env export --name machine-learning-39-env --file machine-learning-39-env.yml
 $ git init
-$ git add machine-learning-env.yml
-$ git commit -m "Adding machine-learning-env.yml config file."
+$ git add machine-learning-39-env.yml
+$ git commit -m "Adding machine-learning-39-env.yml config file."
 ~~~
 {: .language-bash}
 
@@ -181,9 +182,9 @@ This is achieved using the `--from-history` flag/option which means _only_ those
 `conda install` commands, and **not** the dependencies that were pulled in when doing so will be exported.
 
 ~~~
-$ conda env export --name machine-learning-env --from-history --file machine-learning-history-env.yml
-$ git add machine-learning-history-env.yml
-$ git commit -m "Adding machine-learning-history-env.yml based on environment history"
+$ conda env export --name machine-learning-39-env --from-history --file machine-learning-39-env.yml
+$ git add machine-learning-39-env.yml
+$ git commit -m "Updates machine-learning-39-env.yml based on environment history"
 ~~~
 {: .language-bash}
 
@@ -222,7 +223,8 @@ $ git commit -m "Adding machine-learning-history-env.yml based on environment hi
 > ~~~
 > {: .language-yaml}
 >
-> Now use this file to create a new Conda environment. Where is this new environment created?
+> Now use this file to create a new Conda environment. Where is this new environment created? If you are using Git add
+> the YAML file to your repository.
 >
 > > ## Solution
 > >
@@ -239,17 +241,18 @@ $ git commit -m "Adding machine-learning-history-env.yml based on environment hi
 > > {: .language-bash}
 > >
 > > The above sequence of commands will create a new Conda environment inside the
-> > `~/miniconda3/envs` directory.
+> > `~/miniconda3/envs` directory (check with `conda env list` or `conda info`).
 > >
 > > You can now run the `conda env list` command and see that this environment has been
-> > created.
+> > created or if you have `conda activate scikit-learn-env` you can use `conda info` to get detailed information about
+> > the environment.
 > {: .solution}
 {: .challenge}
 
 > ## Specifying channels in the environment.yml
 >
-> We learnt in the previous episode, that some packages may need to be installed from other than the
-> defaults channel. We can also specify the channels that conda should look for the packages within the
+> We learnt in the previous episode, that some packages may need to be installed from channels other than the
+> default channel. We can also specify the channels that conda should look for the packages within the
 > `environment.yml` file:
 >
 > ~~~

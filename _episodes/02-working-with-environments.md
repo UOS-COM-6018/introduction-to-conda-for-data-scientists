@@ -25,6 +25,7 @@ keypoints:
 - "You install packages into environments `conda install`."
 - "Use the `conda env list` command to list existing environments and their respective locations."
 - "Use the `conda list` command to list all of the packages installed in an environment."
+- "Use the `conda [command] --help` to get information on how to use conda or a specific `command`."
 ---
 
 > ## Workspace for Conda environments
@@ -96,11 +97,10 @@ between them.
 {: .callout}
 ## Creating environments
 
-To create a new environment for Python development using `conda` you can use the `conda create`
-command.
+To create a new environment for Python development using `conda` you can use the `conda create` command.
 
 ~~~
-$ conda create --name basic-scipy-env python=3.10
+$ conda create --name basic-scipy-env
 ~~~
 {: .language-bash}
 
@@ -108,92 +108,18 @@ For a list of all commands, take a look at [Conda general commands](https://docs
 
 It is a good idea to give your environment a meaningful name in order to help yourself remember
 the purpose of the environment. While naming things can be difficult, `$PROJECT_NAME-env` is a
-good convention to follow. Sometimes also the specific version of a package why you had to create a new environment is a
-good name.
+good convention to follow. Sometimes including the version of Python you created the environment
+with is useful too.
 
-The command above will create a new Conda environment called `basic-scipy-env` and install a recent
-version of Python (3.10). If you wish, you can specify a specific version of Python for `conda` to
-install when creating the environment by adding a version number e.g. to `python=3.8`.
+The command above created a new Conda environment called `basic-scipy-env` and installed a recent
+version of Python (3.10 if you downloaded the most recent install script). You can however specify a specific version of
+Python for `conda` to install when creating the environment by adding a version number e.g. to `python=3.8`.
 
 ~~~
 $ conda create --name python38-env python=3.8
 ~~~
 {: .language-bash}
 
-> ## You can specify a version number for each package you wish to install
->
-> In order to make your results reproducible and to make it easier for research colleagues to recreate your Conda
-> environments on their machines it is sometimes a good practice to explicitly specify the version number for each
-> package that you install into an environment.
->
-> Many packages use [semantic versioning](https://semver.org/)  where there are three version numbers separated by
-> decimal points e.g. 2.11.3. In this scheme the numbers have this meaning:
-> _major_version_._minor_version_._patch_version_. Changes to  _patch_version_ are for backwards compatible bug fixes,
-> so we often only specify the first two numbers.
->
-> If you are not sure exactly which version of a package you want to use, then you can use search to see what versions
-> are available using the `conda search` command.
->
-> ~~~
-> $ conda search <PACKAGE_NAME>
-> ~~~
->
-> For example, if you wanted to see which versions of [Scikit-learn](https://scikit-learn.org/stable/),
-> a popular Python library for machine learning, are available, you would run the following.
->
-> ~~~
-> $ conda search scikit-learn
-> ~~~
->
-> As always you can run `conda search --help` to learn about available options.
-{: .callout}
-
-
-
-> ## Creating a new environment
->
-> Create a new environment called "machine-learning-env" with Python and the most current versions
-> of [IPython](https://ipython.org/), [Matplotlib](https://matplotlib.org/),
-> [Pandas](https://pandas.pydata.org/), [Numba](https://numba.pydata.org/) and
-> [Scikit-Learn](https://scikit-learn.org/stable/index.html).
->
-> > ## Solution
-> >
-> > In order to create a new environment you use the `conda create` command, activate the environment then install the
-> > packages as follows.
-> >
-> > ~~~
-> > $ conda create --name machine-learning-env python=3.10
-> > $ conda activate machine-learning-env
-> > $ conda install ipython matplotlib pandas python scikit-learn numba
-> > ~~~
-> > {: .language-bash}
-> >
-> > Since no version numbers are provided for any of the Python packages, Conda will download the most current, mutually
-> > compatible versions of the requested packages. However, since it is sometimes good practice to provide explicit
-> > version numbers, you may prefer the following solution and you would discover the available versions using `conda
-> > search <PKGNAME>`
-> >
-> > ~~~
-> > $ conda create --name machine-learning-env python=3.10
-> > $ conda activate machine-learning-env
-> > $ conda install ipython=8.8.0 matplotlib=3.6.2 pandas=1.5.2 python=3.10 scikit-learn=1.2.0 numba=0.56.4
-> > ~~~
-> > {: .language-bash}
-> >
-> > However, please be aware that the version numbers for each packages may not be the latest available and would need to be adjusted.
-> >
-> {: .solution}
-{: .challenge}
-
-> ## What actually happens when I install packages?
->
-> During the installation process, files are extracted into the specified environment (defaulting to
-> the current environment if none is specified). Installing the files of a Conda package into an
-> environment can be thought of as changing the directory to an environment, and then downloading
-> and extracting the package and its dependencies. Conda does the hard work of figuring out what
-> dependencies are needed and making sure that they will all work together.
-{: .callout}
 
 ## Activating an existing environment
 
@@ -211,12 +137,31 @@ $ conda activate basic-scipy-env
 ~~~
 {: .language-bash}
 
-You can see that an environment has been activated because the shell prompt will now include the
-name of the active environment.
+You can see that an environment has been activated because the shell prompt will now include the name of the active
+environment.
 
 ~~~
 (basic-scipy-env) $
 ~~~
+
+> ## Creating and activating a new environment
+>
+> Create a new environment called "machine-learning-39-env" with Python 3.9 explicitly specified and  activate it
+>
+> > ## Solution
+> >
+> > In order to create a new environment you use the `conda create` command
+> >
+> > ~~~
+> > $ conda create --name machine-learning-39-env python=3.9
+> > $ conda activate machine-learning-39-env
+> > ~~~
+> > {: .language-bash}
+> >
+> {: .solution}
+{: .challenge}
+
+
 
 ## Deactivate the current environment
 
@@ -245,7 +190,7 @@ include the name of the previously active environment, but will return to `base`
 
 > ## Activate an existing environment by name
 >
-> Activate the `machine-learning-env` environment created in the previous challenge by name.
+> Activate the `machine-learning-39-env` environment created in the previous challenge by name.
 >
 > > ## Solution
 > >
@@ -253,7 +198,7 @@ include the name of the previously active environment, but will return to `base`
 > > follows.
 > >
 > > ~~~
-> > $ conda activate machine-learning-env
+> > $ conda activate machine-learning-39-env
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -261,7 +206,7 @@ include the name of the previously active environment, but will return to `base`
 
 > ## Deactivate the active environment
 >
-> Deactivate the `machine-learning-env` environment that you activated in the previous challenge.
+> Deactivate the `machine-learning-39-env` environment that you activated in the previous challenge.
 >
 > > ## Solution
 > >
@@ -305,22 +250,59 @@ install` command. For example, the following would install a particular version 
 active environment.
 
 ~~~
-$ conda install scikit-learn=1.2.0
+$ conda install scikit-learn=1.2
 ~~~
 {: .language-bash}
 
+> ## You can specify a version number for each package you wish to install
+>
+> In order to make your results reproducible and to make it easier for research colleagues to recreate your Conda
+> environments on their machines it is sometimes a good practice to explicitly specify the version number for each
+> package that you install into an environment.
+>
+> Many packages use [semantic versioning](https://semver.org/)  where there are three version numbers separated by
+> decimal points e.g. 2.11.3. In this scheme the numbers have this meaning:
+> _major_version_._minor_version_._patch_version_. Changes to  _patch_version_ are for backwards compatible bug fixes,
+> so we often only specify the first two numbers.
+>
+> If you are not sure exactly which version of a package you want to use, then you can use search to see what versions
+> are available using the `conda search` command.
+>
+> ~~~
+> $ conda search <PACKAGE_NAME>
+> ~~~
+>
+> For example, if you wanted to see which versions of [Scikit-learn](https://scikit-learn.org/stable/),
+> a popular Python library for machine learning, are available, you would run the following.
+>
+> ~~~
+> $ conda search scikit-learn
+> ~~~
+>
+> As always you can run `conda search --help` to learn about available options.
+{: .callout}
+
+
 When `conda` installs a package into an environment it also installs any required dependencies. For example, even though
-`numpy` was not listed as a package to install when `numba` was installed `conda` will still install `numpy` into the
-environment because it is a required dependency of `numba`.
+`numpy` was not listed as a package to install when `numba` was installed `conda` will still install `numpy` into the environment because it is a required dependency of `numba`.
 
 You can install multiple packages by listing the packages that you wish to install, optionally including the version you
 wish to use.
 
 ~~~
 $ conda activate basic-scipy-env
-$ conda install ipython matplotlib=3.7 scipy=1.9.3
+$ conda install ipython matplotlib=3.7 scipy=1.9
 ~~~
 {: .language-bash}
+
+> ## What actually happens when I install packages?
+>
+> During the installation process, files are extracted into the specified environment (defaulting to
+> the current environment if none is specified). Installing the files of a Conda package into an
+> environment can be thought of as changing the directory to an environment, and then downloading
+> and extracting the package and its dependencies. Conda does the hard work of figuring out what
+> dependencies are needed and making sure that they will all work together.
+{: .callout}
 
 Running the following command in the `basic-scipy-env` will fail as the requested `scipy` and `numpy` versions are
 incompatible with Python 3.10 the environment was created with (`numpy=1.9.3` is quite an old version).
@@ -362,14 +344,14 @@ $ conda install scipy=1.9.3 numpy=1.9.3
 > core Python data science tools such as `numpy`, `pandas`, and `scikit-learn`. Have a read through the
 > [official documentation](https://docs.conda.io/projects/conda/en/latest/commands/install.html)
 > for the `conda install` command and see if you can figure out how to install `dask` into the
-> `machine-learning-env` that you created in the previous challenge.
+> `machine-learning-39-env` that you created in the previous challenge.
 >
 > > ## Solution
 > >
-> > You can activate the `machine-learning-env` environment, search for available versions of `dask` and then use the
+> > You can activate the `machine-learning-39-env` environment, search for available versions of `dask` and then use the
 > > `conda install` command as follows.
 > > ~~~
-> > $ conda activate machine-learning-env
+> > $ conda activate machine-learning-39-env
 > > $ conda search dask
 > > $ conda install dask=2022.7.0
 > > ~~~
@@ -390,7 +372,7 @@ $ conda install scipy=1.9.3 numpy=1.9.3
 > #
 > base                  *  /home/neil/miniconda3
 > basic-scipy-env          /home/neil/miniconda3/envs/basic-scipy-env
-> machine-learning-env     /home/neil/miniconda3/envs/machine-learning-env
+> machine-learning-39-env  /home/neil/miniconda3/envs/machine-learning-39-env
 > python310-env            /home/neil/miniconda3/envs/python310-env
 > scikit-learn-env         /home/neil/miniconda3/envs/scikit-learn-env
 > scikit-learn-kaggle-env  /home/neil/miniconda3/envs/scikit-learn-kaggle-env
