@@ -151,15 +151,15 @@ environment.
 
 > ## Creating and activating a new environment
 >
-> Create a new environment called "machine-learning-39-env" with Python 3.9 explicitly specified and  activate it
+> Create a new environment called "machine-learning-312-env" with Python 3.12 explicitly specified and  activate it
 >
 > > ## Solution
 > >
 > > In order to create a new environment you use the `conda create` command
 > >
 > > ~~~
-> > conda create --name machine-learning-39-env python=3.9
-> > conda activate machine-learning-39-env
+> > conda create --name machine-learning-312-env python=3.12
+> > conda activate machine-learning-312-env
 > > ~~~
 > >
 > > {: .language-bash}
@@ -195,7 +195,7 @@ include the name of the previously active environment, but will return to `base`
 
 > ## Activate an existing environment by name
 >
-> Activate the `machine-learning-39-env` environment created in the previous challenge by name.
+> Activate the `machine-learning-312-env` environment created in the previous challenge by name.
 >
 > > ## Solution
 > >
@@ -203,7 +203,7 @@ include the name of the previously active environment, but will return to `base`
 > > follows.
 > >
 > > ~~~
-> > conda activate machine-learning-39-env
+> > conda activate machine-learning-312-env
 > > ~~~
 > >
 > > {: .language-bash}
@@ -212,7 +212,7 @@ include the name of the previously active environment, but will return to `base`
 
 > ## Deactivate the active environment
 >
-> Deactivate the `machine-learning-39-env` environment that you activated in the previous challenge.
+> Deactivate the `machine-learning-312-env` environment that you activated in the previous challenge.
 >
 > > ## Solution
 > >
@@ -356,15 +356,15 @@ conda install scipy=1.9.3 numpy=1.9.3
 > core Python data science tools such as `numpy`, `pandas`, and `scikit-learn`. Have a read through the
 > [official documentation](https://docs.conda.io/projects/conda/en/latest/commands/install.html)
 > for the `conda install` command and see if you can figure out how to install `dask` into the
-> `machine-learning-39-env` that you created in the previous challenge.
+> `machine-learning-312-env` that you created in the previous challenge.
 >
 > > ## Solution
 > >
-> > You can activate the `machine-learning-39-env` environment, search for available versions of `dask` and then use the
+> > You can activate the `machine-learning-312-env` environment, search for available versions of `dask` and then use the
 > > `conda install` command as follows.
 > >
 > > ~~~
-> > conda activate machine-learning-39-env
+> > conda activate machine-learning-312-env
 > > conda search dask
 > > conda install dask=2022.7.0
 > > ~~~
@@ -386,7 +386,7 @@ conda install scipy=1.9.3 numpy=1.9.3
 > #
 > base                  *  /home/neil/miniconda3
 > basic-scipy-env          /home/neil/miniconda3/envs/basic-scipy-env
-> machine-learning-39-env  /home/neil/miniconda3/envs/machine-learning-39-env
+> machine-learning-312-env  /home/neil/miniconda3/envs/machine-learning-312-env
 > python310-env            /home/neil/miniconda3/envs/python310-env
 > scikit-learn-env         /home/neil/miniconda3/envs/scikit-learn-env
 > scikit-learn-kaggle-env  /home/neil/miniconda3/envs/scikit-learn-kaggle-env
