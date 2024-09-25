@@ -20,9 +20,9 @@ Conda packages are downloaded from
 remote channels, which are URLs to directories containing conda packages. The `conda` command
 searches a standard set of channels, referred to as `defaults`. The `defaults` channels include:
 
-*   `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in
+* `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in
     `defaults` as the top priority channel.
-*   `r`: Microsoft R Open conda packages and [Anaconda, Inc.'s R conda packages](https://anaconda.org/r/repo).
+* `r`: Microsoft R Open conda packages and [Anaconda, Inc.'s R conda packages](https://anaconda.org/r/repo).
 
 Unless otherwise specified, packages installed using `conda` will be downloaded from the `defaults`
 channels.
@@ -47,7 +47,7 @@ You may find that packages (or often more recent versions of packages!) that you
 install for your project are not available on the `defaults` channels.  In this case you could try the
 following channels.
 
-1.  `conda-forge`: the `conda-forge` channel contains a large number of community curated Conda
+1. `conda-forge`: the `conda-forge` channel contains a large number of community curated Conda
     packages. Typically the most recent versions of packages that are generally available via the
     `defaults` channel are available on `conda-forge` first.
 2. `bioconda`: the `bioconda` channel also contains a large number of Bioinformatics curated conda packages.
@@ -83,6 +83,7 @@ looking for, navigate to
 
 and use the search bar at the top of the page.
 ~~~
+
 {: .language-bash}
 
 Let's check whether the package exists on at least `conda-forge` channel.
@@ -93,22 +94,27 @@ suggest a different way to install.
 $ conda search --channel conda-forge kaggle
 Loading channels: done
 # Name                       Version           Build  Channel
-kaggle                         1.5.3          py27_1  conda-forge
-kaggle                         1.5.3          py36_1  conda-forge
-kaggle                         1.5.3          py37_1  conda-forge
-kaggle                         1.5.4          py27_0  conda-forge
-kaggle                         1.5.4          py36_0  conda-forge
-kaggle                         1.5.4          py37_0  conda-forge
-.
-.
-.
-kaggle                        1.5.12  py38h578d9bd_1  conda-forge
-kaggle                        1.5.12  py38h578d9bd_2  conda-forge
-kaggle                        1.5.12  py39hf3d152e_0  conda-forge
-kaggle                        1.5.12  py39hf3d152e_1  conda-forge
-kaggle                        1.5.12  py39hf3d152e_2  conda-forge
+kaggle                        1.5.12 py310hbe9552e_2  conda-forge
+kaggle                        1.5.12  py38h10201cd_2  conda-forge
+kaggle                        1.5.12  py39h2804cbe_2  conda-forge
 kaggle                        1.5.12    pyhd8ed1ab_4  conda-forge
+kaggle                        1.5.13    pyhd8ed1ab_0  conda-forge
+kaggle                        1.5.14    pyhd8ed1ab_0  conda-forge
+kaggle                        1.5.15    pyhd8ed1ab_0  conda-forge
+kaggle                        1.5.16    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.1    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.2    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.3    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.4    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.5    pyhd8ed1ab_0  conda-forge
+kaggle                         1.6.8    pyhd8ed1ab_0  conda-forge
+kaggle                        1.6.10    pyhd8ed1ab_0  conda-forge
+kaggle                        1.6.11    pyhd8ed1ab_0  conda-forge
+kaggle                        1.6.12    pyhd8ed1ab_0  conda-forge
+kaggle                        1.6.14    pyhd8ed1ab_0  conda-forge
+kaggle                        1.6.17    pyhd8ed1ab_0  conda-forge
 ~~~
+
 {: .language-bash}
 
 Or you can also check online at [https://anaconda.org/conda-forge/kaggle](https://anaconda.org/conda-forge/kaggle).
@@ -117,10 +123,11 @@ Once we know that the `kaggle` package is available via `conda-forge` we can go 
 it.
 
 ~~~
-$ conda create --name machine-learning-env python=3.10
-$ conda activate machine-learning-env
-$ conda install --channel conda-forge kaggle=1.5.12
+conda create --name machine-learning-env python=3.12
+conda activate machine-learning-env
+conda install --channel conda-forge kaggle=1.6.17
 ~~~
+
 {: .language-bash}
 
 > ## Channel priority
@@ -129,8 +136,9 @@ $ conda install --channel conda-forge kaggle=1.5.12
 > multiple times.
 >
 > ~~~
-> $ conda install scipy=1.10.0 --channel conda-forge --channel bioconda
+> conda install scipy=1.14.1 --channel conda-forge --channel bioconda
 > ~~~
+>
 > {: .language-bash}
 >
 > Channel priority decreases from left to right - the first argument has higher priority than the
@@ -158,13 +166,14 @@ $ conda install --channel conda-forge kaggle=1.5.12
 > > (since we do not explicitly state the versions of these).
 > >
 > > ~~~
-> > $ mkdir my-computer-vision-project
-> > $ cd my-computer-vision-project/
-> > $ conda create --name my-computer-vision-project python=3.10
-> > $ conda activate my-computer-vision-project
-> > $ conda search --channel conda-forge polars
-> > $ conda install --channel conda-forge jupyterlab polars matplotlib
+> > mkdir my-computer-vision-project
+> > cd my-computer-vision-project/
+> > conda create --name my-computer-vision-project python=3.10
+> > conda activate my-computer-vision-project
+> > conda search --channel conda-forge polars
+> > conda install --channel conda-forge jupyterlab polars matplotlib
 > > ~~~
+> >
 > > {: .language-bash}
 > >
 > > Hint: the `--channel` argument can also be shortened to `-c`, for more
@@ -179,8 +188,9 @@ $ conda install --channel conda-forge kaggle=1.5.12
 > channel being used to install a particular package under the current active environment.
 >
 > ~~~
-> $ conda install conda-forge::polars
+> conda install conda-forge::polars
 > ~~~
+>
 > {: .language-bash}
 >
 > Repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, and `matplotlib` from the
@@ -214,9 +224,10 @@ $ which python
 $ which pip # sometimes installed as pip3
 /usr/bin/pip
 ~~~
+
 {: .language-bash}
 
-> ## Windows users...
+> ## Windows users
 >
 > You can type `where.exe` in **PowerShell** and it does the same thing as `which` in **bash**.
 {: .callout}
@@ -232,6 +243,7 @@ $ conda activate
 $ which pip
 ~/miniconda3/bin/pip
 ~~~
+
 {: .language-bash}
 
 > ## Why should I avoid installing packages into the `base` Conda environment?
@@ -270,9 +282,10 @@ channels will help you avoid difficult to debug issues that frequently arise whe
 > > The following commands will activate the `machine-learning-env` and install `combo`.
 > >
 > > ~~~
-> > $ conda activate machine-learning-env
-> > $ pip install combo==0.1.*
+> > conda activate machine-learning-env
+> > pip install combo==0.1.*
 > > ~~~
+> >
 > > {: .language-bash}
 > >
 > > For more details on using `pip` see the [official documentation](https://pip.pypa.io/en/stable/).
